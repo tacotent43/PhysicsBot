@@ -1,0 +1,299 @@
+{
+  "Механика": {
+    "Кинематика": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Динамика": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Статика": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Закон сохранения в механике": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Механические колебания и волны": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    }
+  },
+  "Электродинамика": {
+    "Электрическое поле": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Законы постоянного тока": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Магнитное поле": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Электромагнитная индукция": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Электромагнитные колебания и волны": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Оптика": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Основы специальной теории относительности": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    }
+  },
+  "Квантовая физика ": {
+    "Корпускулярно-волновой дуализм": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Физика атома": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Физика атомного ядра": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    }
+  },
+  "Молекулярная физика. Термодинамика": {
+    "Молекулярная физика": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    },
+    "Термодинамика": {
+      "tasks": [
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        },
+        {
+          "condition": "",
+          "answer": ""
+        }
+      ],
+      "theory": ""
+    }
+  }
+}
