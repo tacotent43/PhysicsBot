@@ -78,8 +78,8 @@ def update(message):
   answer = answers[-1]
   print("DEBUG:", keyboard, answer)
   bot.send_message(message.chat.id, answer, reply_markup=keyboard)
- 
-  
+
+
 # сделать для каждого message.chat.id отдельный path и отдельный answers
 # обработка задач (сделать обработчик), сами задачи через метод get_by_path()
 
