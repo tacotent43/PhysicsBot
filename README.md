@@ -127,11 +127,42 @@
 │   │       │   └── task-n.md
 │   │       └── theory.md
 │   ├── quantum-physics/
-│   │
-│   │
-│   │
+│   │   ├── wave-particle-duality
+│   │   │   ├── tasks/
+│   │   │   │   ├── task-1.md
+│   │   │   │   ├── task-2.md
+│   │   │   │   ├── ...
+│   │   │   │   └── task-n.md
+│   │   │   └── theory.md
+│   │   ├── atomic-physics/
+│   │   │   ├── tasks/
+│   │   │   │   ├── task-1.md
+│   │   │   │   ├── task-2.md
+│   │   │   │   ├── ...
+│   │   │   │   └── task-n.md
+│   │   │   └── theory.md
+│   │   └── physics-of-the-atomic-nucleus/
+│   │       ├── tasks/
+│   │       │   ├── task-1.md
+│   │       │   ├── task-2.md
+│   │       │   ├── ...
+│   │       │   └── task-n.md
+│   │       └── theory.md
 │   └── thermodynamics/
-│       └── 
+│       ├── molecular physics and thermodynamics/
+│       │   ├── tasks/
+│       │   │   ├── task-1.md
+│       │   │   ├── task-2.md
+│       │   │   ├── ...
+│       │   │   └── task-n.md
+│       │   └── theory.md
+│       └── thermodynamics-theme/
+│           ├── tasks/
+│           │   ├── task-1.md
+│           │   ├── task-2.md
+│           │   ├── ...
+│           │   └── task-n.md
+│           └── theory.md
 ├── themes.json        # JSON-файл с темами
 ├── config.json        # JSON-файл с конфигом бота (создать)
 ├── scripts.json       # файл для изменения скриптованных фраз

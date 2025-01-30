@@ -111,9 +111,6 @@ def update(message):
   bot.send_message(message.chat.id, answer, reply_markup=keyboard)
 
 
-# сделать для каждого message.chat.id отдельный path и отдельный answers
-# обработка задач (сделать обработчик), сами задачи через метод get_by_path(message)
-
 # start comma
 @bot.message_handler(commands=["start"])
 def start(message):
@@ -136,6 +133,16 @@ def theme(message):
   answer = f"Выбери интересующий тебя подраздел в теме '{message.text}':"
   get_user(message.chat.id)[1].append(answer)
   update(message)
+
+
+@bot.message_handler(func=lambda message: message.text )
+def get_task(message):
+  
+  pass
+
+
+
+
 
 
 """
