@@ -8,11 +8,12 @@
 #
 # For licensing inquiries, please contact the owner.
 
+import re
 import random
-import time
 import json
 import telebot
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
+from telebot import formatting
 
 ## main functions
 
@@ -58,6 +59,29 @@ want_to_read_theory = scripts["read_theory"]
 users = {}
 
 
+# function to send long message
+def send_long_message(bot, chat_id, text, parse_mode=None, reply_markup=None):
+  max_length = 4096
+  for i in range(0, len(text), max_length):
+    chunk = text[i:i + max_length]
+    bot.send_message(chat_id, chunk, parse_mode=parse_mode, reply_markup=reply_markup)
+
+
+# getting theory from file
+def get_theory_file(path):
+  with open(path, "r") as theory_file:
+    file_text = theory_file.readlines()
+  return file_text
+
+
+# md formatting
+def escape_markdown_v2(text):
+  # List of characters that need to be escaped in MarkdownV2
+  reserved_chars = r'\.\-!()+=|{}\[\]_*~><#&@'
+  # Escape each reserved character
+  return re.sub(f'([{re.escape(reserved_chars)}])', r'\\\1', text)
+
+
 def get_user(id):
   global users
   if id not in users:
@@ -83,10 +107,24 @@ def update(message):
   tmp = get_by_path(message)
   
   if (len(path) and path[-1] == "Теория"):
-    keyboard = create_keyboard([])
-    bot.send_message(message.chat.id, tmp, reply_markup=keyboard)
-    print("THEORY_DEBUG:", message.chat.id, keyboard)
+    filepath = get_by_path(message)
     
+    # theory_text = "".join(get_theory_file(filepath))
+    # escaped_text = escape_markdown_v2(theory_text)
+    # # bot.send_message(message.chat.id, escaped_text, parse_mode="MarkdownV2", reply_markup=keyboard)
+    # # uncomment
+    # # send_long_message(bot, message.chat.id, escaped_text, parse_mode="MarkdownV2", reply_markup=keyboard)
+    # send_long_message(bot, message.chat.id, theory_text, parse_mode="Markdown", reply_markup=keyboard)
+    
+    with open(filepath, "rb") as theory_file:
+      theory = theory_file.read()
+    
+    keyboard = create_keyboard([])
+    
+    bot.send_document(message.chat.id, theory)
+    bot.send_message(message.chat.id, f"Отлично! Держи файл с теорией на тему '{path[-2]}'.", reply_markup=keyboard)
+    
+    print("THEORY_DEBUG:", message.chat.id, keyboard, "theory opened")
     return 
   
   if (len(path) and path[-1] == "Задачи"):
@@ -115,6 +153,10 @@ def update(message):
 @bot.message_handler(commands=["start"])
 def start(message):
   bot.send_message(message.chat.id, "Привет, " + message.from_user.first_name + "!\n" + start_hello_comma)
+  
+  # зачистка текущего положения
+  get_user(message.chat.id)[0], get_user(message.chat.id)[1] = [], []
+  
   main_menu(message)
   print(f"DEBUG: {message.chat.id}:{message.from_user.username} sent a request: {message.text}")
 
@@ -135,12 +177,11 @@ def theme(message):
   update(message)
 
 
+# Функция для получения задачи. Надо реализовать
 @bot.message_handler(func=lambda message: message.text )
 def get_task(message):
   
   pass
-
-
 
 
 
@@ -150,6 +191,12 @@ TODO:
 Сделать классификацию по разделам 
 Реализовать систему вывода задач
 Реализовать систему проверки задач
+
+Дотехать все файлы
+Довнести все изменения в themes.json
+
+
+починить кнопку back
 """
 
 
@@ -161,6 +208,7 @@ def return_back(message):
     get_user(message.chat.id)[0].pop()
   if (len(get_user(message.chat.id)[1]) > 1):
     get_user(message.chat.id)[1].pop()
+  print(f"DEBUG: {message.chat.id} pressed back button")
   update(message)
   
 

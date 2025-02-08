@@ -15,7 +15,7 @@
           "answer": ""
         }
       ],
-      "Теория": "./src/mechanics/kinematics/theory.md"
+      "Теория": "src/mechanics/kinematics/kinematics.pdf"
     },
     "Динамика": {
       "Задачи": [
