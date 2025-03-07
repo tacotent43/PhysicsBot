@@ -167,6 +167,24 @@ def main_menu(message):
   get_user(message.chat.id)[1].append(answer)
   update(message)
 
+# REMOVE ALL CODE HERE {start}
+# @bot.message_handler(func=lambda message: message.text == "Задача")
+# def tmp_func(message):
+#   bot.send_message(message.chat.id, """Вот тебе задачка по теме Баллистика:
+# ```Условие:
+# Два мальчика, находящиеся на расстоянии 9,2 м друг от друга, перебрасывают мяч, сообщая ему скорость 11 м/с.
+# ```
+# Найди максимальную высоту подъёма мяча.""", parse_mode="Markdown")
+
+# @bot.message_handler(func=lambda message: message.text == "5")
+# def tmp_func_2(message):
+#   bot.send_message(message.chat.id, "Ура, твой ответ корректен! Выбери другую задачу, если не хочешь - нажми 'Назад'.")
+
+# @bot.message_handler(func=lambda message: message.text == "4")
+# def tmp_func_3(message):
+#   bot.send_message(message.chat.id, "К сожалению, твой ответ неправильный! Попробуй ещё раз.")
+# REMOVE END
+
 
 # Функция для выбора подразделов
 @bot.message_handler(func=lambda message: message.text in get_by_path(message))
@@ -180,8 +198,9 @@ def theme(message):
 # Функция для получения задачи. Надо реализовать
 @bot.message_handler(func=lambda message: message.text )
 def get_task(message):
-  
   pass
+
+
 
 
 

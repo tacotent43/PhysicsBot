@@ -1,0 +1,265 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{graphicx} 
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{circuitikz} 
+\usepackage{physics}
+
+\usepackage{enumitem}
+
+\geometry{top=2cm, bottom=2cm, left=1cm, right=1cm}
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot[C]{\rule[20pt]{\textwidth}{0.4pt}}
+\fancyhead{} 
+\fancyfoot[L]{Page \thepage} 
+\fancyfoot[R]{\copyright\ Бот для подготовки к ЕГЭ по физике. 2025г} 
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{3em}{}
+\setlist[itemize]{label=\scriptsize\textbullet}
+
+
+\begin{document}
+
+\begin{center}
+\scalebox{2}{\textbf{Электромагнитные колебания и волны}}
+\end{center}
+
+\vspace{-2.5em}
+
+%%%%%%%%%%%%%%%%%
+% \section*{}
+
+
+% \vspace{-9pt}
+% \subsection*{}
+% \vspace{-3pt}
+
+
+% \begin{enumerate} [itemsep=0pt, topsep=0pt, parsep=0pt]
+%   \item $p$ – импульс тела;
+%   \item $m$ – масса тела;
+%   \item $v$ – скорость тела.
+% \end{enumerate}
+
+
+% [itemsep=0pt, topsep=0pt, parsep=0pt]
+%%%%%%%%%%%%%%%%%
+
+\section*{5.1 Свободные электромагнитные колебания. Колебательный контур}
+\vspace{-9pt}
+\subsection*{Свободные электромагнитные колебания:}
+\vspace{-3pt}
+Колебания электрического заряда и тока в колебательном контуре без внешнего воздействия.
+
+\vspace{-9pt}
+\subsection*{Колебательный контур:}
+\vspace{-3pt}
+Простейшая электрическая цепь, состоящая из последовательно соединенных конденсатора ($C$) и катушки индуктивности ($L$).
+
+\vspace{-9pt}
+\subsection*{Преобразование энергии:}
+\vspace{-3pt}
+В колебательном контуре происходит взаимное преобразование энергии электрического поля конденсатора в энергию магнитного поля катушки и обратно.
+
+\vspace{-9pt}
+\subsection*{Период собственных колебаний (период Томсона):}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ T = 2\pi \sqrt{LC} $$
+  где:
+  \begin{itemize}
+    \item $L$ — индуктивность.
+    \item $C$ — ёмкость.
+  \end{itemize}
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Частота собственных колебаний:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ \nu = \frac{1}{T} $$
+\end{enumerate}
+
+
+\section*{5.2 Вынужденные электромагнитные колебания. Резонанс}
+\vspace{-9pt}
+\subsection*{Вынужденные электромагнитные колебания:}
+\vspace{-3pt}
+Колебания электрического заряда и тока в контуре под действием внешней переменной ЭДС.
+
+\vspace{-9pt}
+\subsection*{Резонанс:}
+\vspace{-3pt}
+Явление резкого возрастания амплитуды вынужденных колебаний, когда частота внешней силы близка к собственной частоте колебательного контура.
+
+\vspace{-9pt}
+\subsection*{Условие резонанса:}
+\vspace{-3pt}
+Частота вынужденной ЭДС равна собственной частоте контура.
+
+\newpage
+
+\section*{5.3 Гармонические электромагнитные колебания}
+\vspace{-9pt}
+\subsection*{Гармонические колебания:}
+\vspace{-3pt}
+Колебания, при которых заряд, ток и напряжение изменяются со временем по закону синуса или косинуса.
+
+\vspace{-9pt}
+\subsection*{Описание:}
+\vspace{-3pt}
+Аналогичны механическим гармоническим колебаниям.
+
+\vspace{-9pt}
+\subsection*{Уравнение колебаний:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ q(t) = q_{\text{max}} \cdot \cos(\omega t + \phi) $$
+  где:
+  \begin{itemize}
+    \item $q_{\text{max}}$ — амплитуда заряда.
+    \item $\omega$ — циклическая частота.
+    \item $\phi$ — начальная фаза.
+  \end{itemize}
+\end{enumerate}
+
+\section*{5.4 Переменный ток. Производство, передача и потребление электрической энергии}
+\vspace{-9pt}
+\subsection*{Переменный ток:}
+\vspace{-3pt}
+Электрический ток, сила и направление которого периодически изменяются со временем.
+
+\vspace{-9pt}
+\subsection*{Производство:}
+\vspace{-3pt}
+Генераторы переменного тока (электромагнитная индукция).
+
+\vspace{-9pt}
+\subsection*{Передача:}
+\vspace{-3pt}
+По линиям электропередачи (высокое напряжение, низкий ток для уменьшения потерь на нагрев).
+
+\vspace{-9pt}
+\subsection*{Потребление:}
+\vspace{-3pt}
+Электрические приборы, трансформаторы для преобразования напряжения.
+
+\vspace{-9pt}
+\subsection*{Действующее значение силы тока и напряжения:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ I_{\text{действ}} = \frac{I_{\text{макс}}}{\sqrt{2}}, \quad U_{\text{действ}} = \frac{U_{\text{макс}}}{\sqrt{2}} $$
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Мощность переменного тока:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ P = I_{\text{действ}} \cdot U_{\text{действ}} \cdot \cos(\phi) $$
+  где $\phi$ — сдвиг фаз между напряжением и током.
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Трансформатор:}
+\vspace{-3pt}
+Устройство для преобразования напряжения переменного тока.
+\begin{itemize}
+  \item Отношение напряжений и токов в трансформаторе:
+  \vspace{-0.05em}
+  $$ \frac{U_1}{U_2} = \frac{I_2}{I_1} = \frac{n_1}{n_2} $$
+  где $n$ — число витков обмотки трансформатора.
+\end{itemize}
+
+
+\section*{5.5 Электромагнитное поле}
+\vspace{-9pt}
+\subsection*{Электромагнитное поле:}
+\vspace{-3pt}
+Особая форма материи, представляющая собой совокупность электрического и магнитного полей, взаимосвязанных друг с другом.
+
+\vspace{-9pt}
+\subsection*{Изменение одного поля:}
+\vspace{-3pt}
+Изменение электрического поля порождает магнитное поле, и наоборот (вихревое поле).
+
+\vspace{-9pt}
+\subsection*{Уравнения Максвелла:}
+\vspace{-3pt}
+Описывают электромагнитное поле.
+
+
+\section*{5.6 Свойства электромагнитных волн}
+\vspace{-9pt}
+\subsection*{Электромагнитные волны:}
+\vspace{-3pt}
+Распространение электромагнитного поля в пространстве (поперечные волны).
+
+\vspace{-9pt}
+\subsection*{Свойства:}
+\vspace{-3pt}
+\begin{itemize}
+  \item Распространяются в вакууме со скоростью света ($c \approx 3 \cdot 10^8$ м/с).
+  \item Переносят энергию.
+  \item Отражаются, преломляются, интерферируют, дифрагируют.
+  \item Поляризация.
+  \item Несут импульс.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Скорость электромагнитных волн:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ v = \lambda \nu $$
+  где:
+  \begin{itemize}
+    \item $\lambda$ — длина волны.
+    \item $\nu$ — частота.
+  \end{itemize}
+\end{enumerate}
+
+
+\section*{5.7 Различные виды электромагнитных излучений и их применение}
+\vspace{-9pt}
+\subsection*{Шкала электромагнитных волн (по убыванию длины волны/увеличению частоты):}
+\vspace{-3pt}
+\begin{itemize}
+  \item Радиоволны (радиосвязь, телевидение).
+  \item Инфракрасное излучение (тепловидение, пульты ДУ).
+  \item Видимый свет (зрение, освещение).
+  \item Ультрафиолетовое излучение (медицина, стерилизация).
+  \item Рентгеновское излучение (медицинская диагностика).
+  \item Гамма-излучение (ядерные реакции, радиотерапия).
+\end{itemize}
+
+
+
+\end{document}

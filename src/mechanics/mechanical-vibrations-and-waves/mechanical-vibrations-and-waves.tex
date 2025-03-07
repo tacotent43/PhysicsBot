@@ -1,0 +1,150 @@
+\documentclass[a4paper, 12pt]{article} 
+\usepackage{fancyhdr}   % Для настройки заголовков и футеров
+\usepackage{graphicx}    % Для работы с изображениями (например, логотип)
+\usepackage{lipsum}      % Для примера текста
+\usepackage{geometry}    % Для настройки полей страницы
+\usepackage{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{circuitikz} 
+\usepackage{physics}
+\usepackage{enumitem}
+
+\geometry{top=2cm, bottom=2cm, left=1cm, right=1cm}
+
+% Настройка заголовков и футеров
+\pagestyle{fancy}
+\fancyhf{} % Убираем все стандартные элементы
+\fancyfoot[C]{\rule[20pt]{\textwidth}{0.4pt}}
+\fancyhead{} % Убираем верхнюю линию заголовка
+\fancyfoot[L]{Page \thepage}  % Нумерация страниц по центру
+\fancyfoot[R]{\copyright\ Бот для подготовки к ЕГЭ по физике. 2025г}  % Копирайт в правом нижнем углу
+
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{3em}{}
+\setlist[itemize]{label=\scriptsize\textbullet}
+
+
+%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%
+%          document starts here         %
+%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%
+
+\begin{document}
+
+\begin{center}
+  \scalebox{2}{\textbf{Механические колебания и волны}}
+\end{center}
+
+
+\section*{5.1 Гармонические колебания}
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\textbf{Гармонические колебания} — это колебания, при которых физическая величина изменяется по закону синуса или косинуса. Уравнение гармонических колебаний имеет вид:
+$$ x(t) = A \cos(\omega t + \phi_0),$$
+где:
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item $ x(t)$ — значение колеблющейся величины в момент времени $ t$;
+  \item $ A$ — амплитуда колебаний;
+  \item $ \omega$ — циклическая частота;
+  \item $ \phi_0$ — начальная фаза.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Формула}
+\vspace{-3pt}
+Скорость и ускорение при гармонических колебаниях:
+$$ v(t) = \frac{dx}{dt} = -A \omega \sin(\omega t + \phi_0),$$
+$$ a(t) = \frac{dv}{dt} = -A \omega^2 \cos(\omega t + \phi_0).$$
+
+\section*{5.2 Амплитуда и фаза колебаний}
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\textbf{Амплитуда $A$} — это максимальное отклонение колеблющейся величины от положения равновесия. Фаза $ \phi(t) = \omega t + \phi_0$ определяет состояние колебательной системы в данный момент времени.
+
+\section*{5.3 Период колебаний}
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\textbf{Период $T$} — это время, за которое система совершает одно полное колебание. Связь с циклической частотой:
+$$ T = \frac{2\pi}{\omega}.$$
+
+\section*{5.4 Частота колебаний}
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\textbf{Частота $\nu$} — это количество полных колебаний, совершаемых за единицу времени. Связь с периодом:
+$$ \nu = \frac{1}{T}.$$
+Циклическая частота $\omega$ связана с частотой $\nu$ соотношением:
+$$ \omega = 2\pi \nu.$$
+
+\section*{5.5 Свободные колебания}
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\textbf{Свободные колебания} — это колебания, происходящие в системе под действием внутренних сил после выведения её из положения равновесия. Уравнение свободных колебаний:
+$$ \frac{d^2x}{dt^2} + \omega_0^2 x = 0,$$
+где $ \omega_0$ — собственная частота системы.
+
+\section*{5.6 Вынужденные колебания}
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\textbf{Вынужденные колебания} — это колебания, возникающие под действием внешней периодической силы. Уравнение вынужденных колебаний:
+$$ \frac{d^2x}{dt^2} + 2\beta \frac{dx}{dt} + \omega_0^2 x = F_0 \cos(\omega t),$$
+где:
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item $ \beta$ — коэффициент затухания;
+  \item $ F_0$ — амплитуда внешней силы;
+  \item $ \omega$ — частота внешней силы.
+\end{itemize}
+
+\section*{5.7 Резонанс}
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\textbf{Резонанс} — это явление резкого увеличения амплитуды колебаний при совпадении частоты внешней силы $ \omega$ с собственной частотой системы $ \omega_0$. Условие резонанса:
+$$ \omega = \omega_0.$$
+
+\section*{5.8 Длина волны}
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\textbf{Длина волны $\lambda$} — это расстояние, на которое распространяется волна за один период колебаний. Связь с скоростью $ v$ и частотой $ \nu$:
+$$ \lambda = \frac{v}{\nu}.$$
+
+\section*{5.9 Звук}
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\textbf{Звук} — это механические колебания, распространяющиеся в упругой среде. Скорость звука $ v$ зависит от свойств среды:
+$$ v = \sqrt{\frac{E}{\rho}},$$
+где:
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item $ E$ — модуль упругости среды;
+  \item $ \rho$ — плотность среды.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Характеристики звука}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item \textbf{Громкость} — зависит от амплитуды колебаний;
+  \item \textbf{Высота тона} — зависит от частоты колебаний;
+  \item \textbf{Тембр} — определяется спектром звука.
+\end{enumerate}
+
+
+\end{document}

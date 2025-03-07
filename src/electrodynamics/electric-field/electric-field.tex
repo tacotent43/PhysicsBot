@@ -1,0 +1,477 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{graphicx} 
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{circuitikz} 
+\usepackage{physics}
+
+\usepackage{enumitem}
+
+\geometry{top=2cm, bottom=2cm, left=1cm, right=1cm}
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot[C]{\rule[20pt]{\textwidth}{0.4pt}}
+\fancyhead{} 
+\fancyfoot[L]{Page \thepage} 
+\fancyfoot[R]{\copyright\ Бот для подготовки к ЕГЭ по физике. 2025г} 
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{3em}{}
+\setlist[itemize]{label=\scriptsize\textbullet}
+
+
+\begin{document}
+
+\begin{center}
+\scalebox{2}{\textbf{Электрическое поле}}
+\end{center}
+
+\vspace{-2.5em}
+
+%%%%%%%%%%%%%%%%%
+% \section*{}
+
+
+% \vspace{-9pt}
+% \subsection*{}
+% \vspace{-3pt}
+
+
+% \begin{enumerate} [itemsep=0pt, topsep=0pt, parsep=0pt]
+%   \item $p$ – импульс тела;
+%   \item $m$ – масса тела;
+%   \item $v$ – скорость тела.
+% \end{enumerate}
+
+
+% [itemsep=0pt, topsep=0pt, parsep=0pt]
+%%%%%%%%%%%%%%%%%
+
+% 1.1
+\section*{1.1 Электризация тел}
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\textbf{Электризация} — это процесс, при котором тела приобретают электрический заряд в результате перераспределения зарядов между ними.
+
+\vspace{-9pt}
+\subsection*{Способы электризации:}
+\vspace{-3pt}
+\begin{enumerate} [itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item \textbf{Электризация трением:} При трении двух тел часть электронов переходит с одного тела на другое, в результате чего тела приобретают заряды противоположных знаков.
+  \item \textbf{Электризация соприкосновением:} При контакте заряженного тела с нейтральным заряд перераспределяется между ними.
+  \item \textbf{Электризация через влияние (электростатическая индукция):} Под действием внешнего заряженного тела в нейтральном теле происходит перераспределение зарядов, и оно приобретает разноименные заряды на разных концах.
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Закон сохранения заряда:}
+\vspace{-3pt}
+В замкнутой системе алгебраическая сумма электрических зарядов остается постоянной:
+\vspace{-0.05em}
+$$ q_1 + q_2 + \dots + q_n = \text{const} $$
+
+\vspace{-18pt}
+\subsection*{Типы зарядов:}
+\vspace{-3pt}
+\begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item \textbf{Положительный заряд:} Обусловлен недостатком электронов.
+  \item \textbf{Отрицательный заряд:} Обусловлен избытком электронов.
+\end{itemize}
+
+\vspace{-18pt}
+\subsection*{Взаимодействие зарядов:}
+\vspace{-3pt}
+\begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item Одноименные заряды отталкиваются.
+  \item Разноименные заряды притягиваются.
+\end{itemize}
+
+\vspace{-18pt}
+\subsection*{Электрическое поле:}
+\vspace{-3pt}
+\begin{itemize}
+  \item Заряженные тела создают вокруг себя электрическое поле, которое действует на другие заряженные тела.
+  \item Напряженность электрического поля ($E$) определяется силой, действующей на единичный положительный заряд:
+  \vspace{-0.05em}
+  $$ E = \frac{F}{q} $$
+  где:
+  \begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $F$ — сила, действующая на заряд.
+    \item $q$ — величина заряда.
+  \end{itemize}
+\end{itemize}
+
+\vspace{-18pt}
+\subsection*{Примеры электризации:}
+\vspace{-3pt}
+\begin{itemize}
+  \item Электризация волос при расчесывании.
+  \item Электризация воздушного шарика при трении о шерсть.
+  \item Электризация через влияние в электроскопе.
+\end{itemize}
+
+\newpage
+
+% 1.4
+\section*{1.4 Закон Кулона}
+
+\vspace{-9pt}
+\subsection*{Формулировка:}
+\vspace{-3pt}
+Сила взаимодействия между двумя точечными зарядами прямо пропорциональна произведению модулей зарядов и обратно пропорциональна квадрату расстояния между ними.
+
+\vspace{-9pt}
+\subsection*{Формула:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Закон Кулона:
+  \vspace{-0.05em}
+  \vspace{-6pt}
+  $$ F = k \cdot \frac{|q_1 \cdot q_2|}{r^2} $$
+  где:
+  \begin{itemize}
+    \item $F$ — сила Кулона.
+    \item $k$ — коэффициент пропорциональности (электрическая постоянная). $k = 9 \cdot 10^9$ $\frac{Н \cdot м^2}{Кл^2}$.
+    \item $q_1, q_2$ — величины точечных зарядов.
+    \item $r$ — расстояние между зарядами.
+  \end{itemize}
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Векторная форма:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Векторная форма закона Кулона:
+  \vspace{-0.05em}
+  $$ \vec{F}_{12} = k \cdot \frac{q_1 \cdot q_2}{r^2} \cdot \frac{\vec{r}_{12}}{r} $$
+  где $\vec{r}_{12}$ — вектор, направленный от заряда $q_1$ к $q_2$.
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Сила Кулона:}
+\vspace{-3pt}
+\begin{itemize}
+  \item Сила отталкивания, если заряды одноименные.
+  \item Сила притяжения, если заряды разноименные.
+  \item Действует вдоль прямой, соединяющей заряды.
+\end{itemize}
+
+\newpage
+
+% 1.5
+\section*{1.5 Действие электрического поля на электрические заряды}
+
+\vspace{-9pt}
+\subsection*{Электрическое поле:}
+\vspace{-3pt}
+Особая форма материи, существующая вокруг электрических зарядов и проявляющаяся в воздействии на другие заряды, помещенные в это поле.
+
+\vspace{-9pt}
+\subsection*{Силовое воздействие:}
+\vspace{-3pt}
+Электрическое поле оказывает силовое воздействие на заряды.
+
+\vspace{-9pt}
+\subsection*{Характер действия:}
+\vspace{-3pt}
+\begin{itemize}
+  \item Положительный заряд движется в направлении силовых линий электрического поля.
+  \item Отрицательный заряд движется против силовых линий электрического поля.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Сила, действующая на заряд в электрическом поле:}
+\vspace{-3pt}
+\vspace{-0.05em}
+$$ F = q \cdot E, $$
+где:
+\begin{itemize}
+  \item $F$ — сила, действующая на заряд.
+  \item $q$ — величина заряда.
+  \item $E$ — напряженность электрического поля.
+\end{itemize}
+
+\newpage
+
+% 1.6
+\section*{1.6 Напряженность электрического поля}
+
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+Векторная физическая величина, характеризующая электрическое поле в данной точке пространства. Напряженность электрического поля равна отношению силы, действующей на пробный положительный заряд, помещенный в эту точку, к величине этого заряда.
+
+\vspace{-9pt}
+\subsection*{Формула:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Напряженность электрического поля:
+  \vspace{-0.05em}
+  $$ E = \frac{F}{q_0} $$
+  где:
+  \begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $E$ — напряженность электрического поля.
+    \item $F$ — сила, действующая на пробный заряд $q_0$.
+    \item $q_0$ — пробный положительный заряд.
+  \end{itemize}
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Направление:}
+\vspace{-3pt}
+Направление напряженности совпадает с направлением силы, действующей на положительный заряд.
+
+\vspace{-9pt}
+\subsection*{Напряженность поля точечного заряда:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ E = k \cdot \frac{|q|}{r^2} $$
+  где:
+  \begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $k$ — коэффициент пропорциональности ($k = 9 \cdot 10^9$ $\frac{Н \cdot м^2}{Кл^2}$).
+    \item $q$ — величина точечного заряда.
+    \item $r$ — расстояние от заряда до точки, в которой определяется напряженность.
+  \end{itemize}
+\end{enumerate}
+
+\newpage
+\vspace{-9pt}
+\subsection*{Единица измерения:}
+\vspace{-3pt}
+\begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item В/м (вольт на метр) или Н/Кл (ньютон на кулон).
+\end{itemize}
+
+% 1.7
+\section*{1.7 Принцип суперпозиции электрических полей}
+\vspace{-9pt}
+\subsection*{Формулировка:}
+\vspace{-3pt}
+Напряженность электрического поля, созданного несколькими зарядами, равна векторной сумме напряженностей полей, созданных каждым из зарядов в отдельности.
+
+\vspace{-9pt}
+\subsection*{Математически:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ \vec{E}_{\text{рез}} = \vec{E}_1 + \vec{E}_2 + \dots + \vec{E}_n $$
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Применение:}
+\vspace{-3pt}
+Позволяет рассчитать электрическое поле, созданное сложной системой зарядов.
+
+\section*{1.8 Потенциальность электростатического поля}
+\vspace{-9pt}
+\subsection*{Потенциальное поле (консервативное поле):}
+\vspace{-3pt}
+Работа сил электрического поля при перемещении заряда не зависит от формы траектории и определяется только начальным и конечным положениями заряда.
+
+\vspace{-9pt}
+\subsection*{Электростатическое поле:}
+\vspace{-3pt}
+Электрическое поле, создаваемое неподвижными зарядами, является потенциальным полем.
+
+\vspace{-9pt}
+\subsection*{Работа электрического поля:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ A = q(\phi_1 - \phi_2) $$
+  где:
+  \begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $\phi_1$ и $\phi_2$ — потенциалы в начальной и конечной точках.
+  \end{itemize}
+\end{enumerate}
+
+\section*{1.9 Потенциал электрического поля. Разность потенциалов}
+\vspace{-9pt}
+\subsection*{Потенциал электрического поля ($\phi$):}
+\vspace{-3pt}
+Скалярная физическая величина, характеризующая энергетические свойства электростатического поля в данной точке. Потенциал равен отношению потенциальной энергии пробного заряда, помещенного в данную точку, к величине этого заряда:
+\vspace{-0.05em}
+$$ \phi = \frac{E_p}{q_0} $$
+
+\vspace{-9pt}
+\subsection*{Потенциал поля точечного заряда:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ \phi = k \cdot \frac{q}{r} $$
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Единица измерения:}
+\vspace{-3pt}
+Вольт (В).
+
+\vspace{-9pt}
+\subsection*{Разность потенциалов (напряжение, $U$):}
+\vspace{-3pt}
+Разность потенциалов между двумя точками электрического поля:
+\vspace{-0.05em}
+$$ U = \phi_1 - \phi_2 $$
+
+\vspace{-9pt}
+\subsection*{Связь между напряженностью и разностью потенциалов:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ E = - \frac{\Delta \phi}{\Delta x} $$
+  (связь для однородного поля)
+  \item Для однородного электрического поля:
+  \vspace{-0.05em}
+  $$ U = E \cdot d $$
+  где $d$ — расстояние между точками с разностью потенциалов $U$.
+\end{enumerate}
+
+\section*{1.10 Проводники в электрическом поле}
+\vspace{-9pt}
+\subsection*{Проводники:}
+\vspace{-3pt}
+Вещества, содержащие свободные заряды (электроны), способные перемещаться под действием электрического поля.
+
+\vspace{-9pt}
+\subsection*{Поведение в электрическом поле:}
+\vspace{-3pt}
+\begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item Свободные заряды в проводнике перемещаются под действием электрического поля, пока поле внутри проводника не станет равным нулю (перераспределение зарядов).
+  \item На поверхности проводника возникают индуцированные заряды, которые компенсируют внешнее электрическое поле внутри проводника.
+  \item Поле внутри проводника равно нулю.
+  \item Поверхность проводника является эквипотенциальной поверхностью (потенциал одинаков во всех точках).
+\end{itemize}
+
+
+\section*{1.11 Диэлектрики в электрическом поле}
+\vspace{-9pt}
+\subsection*{Диэлектрики:}
+\vspace{-3pt}
+Вещества, в которых отсутствуют свободные заряды, но есть электрические диполи (молекулы, у которых центры положительного и отрицательного зарядов не совпадают).
+
+\vspace{-9pt}
+\subsection*{Поляризация диэлектриков:}
+\vspace{-3pt}
+Под действием электрического поля диполи диэлектрика ориентируются вдоль поля, что приводит к ослаблению поля внутри диэлектрика (диэлектрическая проницаемость).
+\begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item Процесс наведения диполей называют поляризацией.
+  \item Поляризация ведет к появлению связанных зарядов на границе диэлектрика.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Диэлектрическая проницаемость ($\epsilon$):}
+\vspace{-3pt}
+Характеризует способность диэлектрика ослаблять электрическое поле.
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Напряженность поля в диэлектрике:
+  \vspace{-0.05em}
+  $$ E_{\text{диэл}} = \frac{E_{\text{вакуум}}}{\epsilon} $$
+\end{enumerate}
+
+\vspace{-9pt} 
+\subsection*{Ослабление поля:}
+\vspace{-3pt}
+Электрическое поле внутри диэлектрика становится меньше, чем внешнее электрическое поле.
+
+\section*{1.12 Электрическая емкость. Конденсатор}
+\vspace{-9pt}
+\subsection*{Электрическая емкость ($C$):}
+\vspace{-3pt}
+Мера способности тела накапливать электрический заряд.
+
+\vspace{-9pt}
+\subsection*{Формула:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ C = \frac{q}{U} $$
+  где:
+  \begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $C$ — электрическая емкость.
+    \item $q$ — заряд тела.
+    \item $U$ — потенциал тела или разность потенциалов.
+  \end{itemize}
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Единица измерения:}
+\vspace{-3pt}
+Фарад (Ф). 1 Ф = 1 Кл/В.
+
+\vspace{-9pt}
+\subsection*{Конденсатор:}
+\vspace{-3pt}
+Устройство, предназначенное для накопления электрического заряда и энергии.
+\begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item Состоит из двух проводников (обкладок), разделенных диэлектриком.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Емкость плоского конденсатора:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула:
+  \vspace{-0.05em}
+  $$ C = \frac{\epsilon \epsilon_0 \cdot S}{d} $$
+  где:
+  \begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $\epsilon$ — диэлектрическая проницаемость вещества между обкладками.
+    \item $\epsilon_0$ — электрическая постоянная.
+    \item $S$ — площадь обкладок.
+    \item $d$ — расстояние между обкладками.
+  \end{itemize}
+\end{enumerate}
+
+\newpage
+\section*{1.13 Энергия электрического поля конденсатора}
+
+\vspace{-9pt}
+\subsection*{Энергия заряженного конденсатора ($W$):}
+\vspace{-3pt}
+Энергия, запасенная в электрическом поле, созданном зарядами на обкладках конденсатора.
+
+\vspace{-9pt}
+\subsection*{Формулы:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Формула 1:
+  \vspace{-0.05em}
+  $$ W = \frac{qU}{2} $$
+  \item Формула 2:
+  \vspace{-0.05em}
+  $$ W = \frac{CU^2}{2} $$
+  \item Формула 3:
+  \vspace{-0.05em}
+  $$ W = \frac{q^2}{2C} $$
+  где:
+  \begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $W$ - Энергия на обкладках конденсатора
+    \item $C$ — электрическая емкость.
+    \item $q$ — заряд тела.
+    \item $U$ — потенциал тела или разность потенциалов.
+  \end{itemize}
+\end{enumerate}
+
+\end{document}

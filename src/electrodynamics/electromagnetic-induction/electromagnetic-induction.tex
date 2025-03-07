@@ -1,0 +1,268 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{graphicx} 
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{circuitikz} 
+\usepackage{physics}
+
+\usepackage{enumitem}
+
+\geometry{top=2cm, bottom=2cm, left=1cm, right=1cm}
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot[C]{\rule[20pt]{\textwidth}{0.4pt}}
+\fancyhead{} 
+\fancyfoot[L]{Page \thepage} 
+\fancyfoot[R]{\copyright\ Бот для подготовки к ЕГЭ по физике. 2025г} 
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{3em}{}
+\setlist[itemize]{label=\scriptsize\textbullet}
+
+
+\begin{document}
+
+\begin{center}
+\scalebox{2}{\textbf{Электромагнитная индукция}}
+\end{center}
+
+\vspace{-2.5em}
+
+%%%%%%%%%%%%%%%%%
+% \section*{}
+
+
+% \vspace{-9pt}
+% \subsection*{}
+% \vspace{-3pt}
+
+
+% \begin{enumerate} [itemsep=0pt, topsep=0pt, parsep=0pt]
+%   \item $p$ – импульс тела;
+%   \item $m$ – масса тела;
+%   \item $v$ – скорость тела.
+% \end{enumerate}
+
+
+% [itemsep=0pt, topsep=0pt, parsep=0pt]
+%%%%%%%%%%%%%%%%%
+
+\section*{4.1 Явление электромагнитной индукции}
+\vspace{-9pt}
+\subsection*{Электромагнитная индукция:}
+\vspace{-3pt}
+Явление возникновения электрического тока в проводящем контуре при изменении магнитного потока через этот контур.
+
+\vspace{-9pt}
+\subsection*{Условие:}
+\vspace{-3pt}
+Изменение магнитного потока может быть вызвано движением магнита относительно контура, изменением силы тока в проводнике, изменением площади контура в магнитном поле и др.
+
+\section*{4.2 Магнитный поток}
+\vspace{-9pt}
+\subsection*{Магнитный поток ($\Phi$):}
+\vspace{-3pt}
+Физическая величина, характеризующая количество линий магнитного поля, пронизывающих данную поверхность.
+
+\vspace{-9pt}
+\subsection*{Формула:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item 
+  \vspace{-0.05em}
+  $$ \Phi = B \cdot S \cdot \cos(\alpha) $$
+  где:
+  \begin{itemize}
+    \item $\Phi$ – магнитный поток,
+    \item $B$ – индукция магнитного поля,
+    \item $S$ – площадь поверхности,
+    \item $\alpha$ – угол между нормалью к поверхности и вектором магнитной индукции.
+  \end{itemize}
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Единица измерения:}
+\vspace{-3pt}
+Вебер (Вб).
+
+\section*{4.3 Закон электромагнитной индукции Фарадея}
+\vspace{-9pt}
+\subsection*{Формулировка:}
+\vspace{-3pt}
+ЭДС индукции в замкнутом контуре равна скорости изменения магнитного потока через этот контур, взятой с обратным знаком.
+
+\vspace{-9pt}
+\subsection*{Формула:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item 
+  \vspace{-0.05em}
+  $$ \epsilon_{инд} = -\frac{\Delta \Phi}{\Delta t} $$
+  где:
+  \begin{itemize}
+    \item $\epsilon_{инд}$ – ЭДС индукции,
+    \item $\Delta \Phi$ – изменение магнитного потока,
+    \item $\Delta t$ – время, за которое произошло изменение магнитного потока.
+  \end{itemize}
+\end{enumerate}
+
+\section*{4.4 Правило Ленца}
+\vspace{-9pt}
+\subsection*{Формулировка:}
+\vspace{-3pt}
+Индукционный ток имеет такое направление, что его магнитное поле противодействует изменению магнитного потока, вызвавшего этот ток.
+
+\vspace{-9pt}
+\subsection*{Значение:}
+\vspace{-3pt}
+Правило Ленца определяет направление индукционного тока.
+
+\vspace{-9pt}
+\subsection*{Влияние:}
+\vspace{-3pt}
+Индукционный ток стремится сохранить магнитный поток через контур неизменным.
+
+\section*{4.5 Самоиндукция}
+\vspace{-9pt}
+\subsection*{Самоиндукция:}
+\vspace{-3pt}
+Явление возникновения ЭДС (электродвижущей силы) в проводнике при изменении силы тока в этом же проводнике.
+
+\vspace{-9pt}
+\subsection*{Суть явления:}
+\vspace{-3pt}
+Когда ток в проводнике (например, в катушке индуктивности) меняется, создаваемое им магнитное поле тоже меняется. Это изменение магнитного поля, в свою очередь, индуцирует ЭДС в самом проводнике, который и создал это поле. Эта индуцированная ЭДС называется ЭДС самоиндукции.
+
+\vspace{-9pt}
+\subsection*{Направление ЭДС самоиндукции:}
+\vspace{-3pt}
+Согласно правилу Ленца, ЭДС самоиндукции всегда направлена так, чтобы препятствовать изменению тока, вызвавшему её.
+\begin{itemize}
+  \item Если ток в цепи возрастает, ЭДС самоиндукции направлена против тока, стремясь уменьшить его нарастание.
+  \item Если ток в цепи убывает, ЭДС самоиндукции направлена в ту же сторону, что и ток, стремясь замедлить его убывание.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Индуктивность ($L$):}
+\vspace{-3pt}
+Это физическая величина, характеризующая способность проводника (катушки) создавать ЭДС самоиндукции при изменении тока в нем. Индуктивность измеряется в Генри (Гн).
+\begin{itemize}
+  \item Чем больше индуктивность, тем больше ЭДС самоиндукции возникает при заданном изменении тока.
+  \item Индуктивность зависит от геометрических размеров и формы проводника (катушки), а также от магнитной проницаемости среды, в которой он находится.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Формула для ЭДС самоиндукции:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item 
+  \vspace{-0.05em}
+  $$ \epsilon = -L \cdot \frac{\Delta I}{\Delta t} $$
+  где:
+  \begin{itemize}
+    \item $\epsilon$ - ЭДС самоиндукции (В),
+    \item $L$ - индуктивность (Гн),
+    \item $\Delta I$ - изменение силы тока (А),
+    \item $\Delta t$ - изменение времени (с).
+  \end{itemize}
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Энергия магнитного поля катушки индуктивности:}
+\vspace{-3pt}
+Катушка с током накапливает энергию в своем магнитном поле. Эта энергия может быть вычислена по формуле:
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item 
+  \vspace{-0.05em}
+  $$ W = \frac{L \cdot I^2}{2} $$
+  где:
+  \begin{itemize}
+    \item $W$ - энергия магнитного поля (Дж),
+    \item $L$ - индуктивность (Гн),
+    \item $I$ - сила тока (А).
+  \end{itemize}
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Применение самоиндукции:}
+\vspace{-3pt}
+\begin{itemize}
+  \item Катушки индуктивности в электрических цепях: Используются для сглаживания пульсаций тока, создания колебательных контуров, фильтрации частот и других целей.
+  \item Трансформаторы: Работают на основе явления взаимной индукции, которое тесно связано с самоиндукцией.
+  \item Системы зажигания в автомобилях: Для создания высоковольтного импульса для поджига топливно-воздушной смеси.
+  \item Индукционные нагреватели: Для бесконтактного нагрева металлических деталей.
+\end{itemize}
+
+\newpage
+
+\section*{4.6 Индуктивность}
+\vspace{-9pt}
+\subsection*{Индуктивность ($L$):}
+\vspace{-3pt}
+Физическая величина, характеризующая способность контура создавать магнитное поле при прохождении через него электрического тока.
+
+\vspace{-9pt}
+\subsection*{Формула:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item 
+  \vspace{-0.05em}
+  $$ L = \frac{\Phi}{I} $$
+  где:
+  \begin{itemize}
+    \item $L$ – индуктивность,
+    \item $\Phi$ – магнитный поток,
+    \item $I$ – сила тока.
+  \end{itemize}
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Единица измерения:}
+\vspace{-3pt}
+Генри (Гн). 1 Гн = 1 Вб/А.
+
+\vspace{-9pt}
+\subsection*{ЭДС самоиндукции:}
+\vspace{-3pt}
+\vspace{-0.05em}
+$$ \epsilon_{самоинд} = -L \cdot \frac{\Delta I}{\Delta t} $$
+
+\section*{4.7 Энергия магнитного поля}
+\vspace{-9pt}
+\subsection*{Энергия магнитного поля ($W_м$):}
+\vspace{-3pt}
+Энергия, запасенная в магнитном поле катушки с током.
+
+\vspace{-9pt}
+\subsection*{Формула:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item 
+  \vspace{-0.05em}
+  $$ W_м = \frac{L \cdot I^2}{2} $$
+  где:
+  \begin{itemize}
+    \item $W_м$ – энергия магнитного поля,
+    \item $L$ – индуктивность,
+    \item $I$ – сила тока.
+  \end{itemize}
+\end{enumerate}
+
+
+
+\end{document}

@@ -1,0 +1,215 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}   % Для настройки заголовков и футеров
+\usepackage{graphicx}    % Для работы с изображениями (например, логотип)
+\usepackage{lipsum}      % Для примера текста
+\usepackage{geometry}    % Для настройки полей страницы
+\usepackage{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{circuitikz} 
+\usepackage{physics}
+
+\usepackage{enumitem}
+
+\geometry{top=2cm, bottom=2cm, left=1cm, right=1cm}
+
+% Настройка заголовков и футеров
+\pagestyle{fancy}
+\fancyhf{} % Убираем все стандартные элементы
+\fancyfoot[C]{\rule[20pt]{\textwidth}{0.4pt}}
+\fancyhead{} % Убираем верхнюю линию заголовка
+\fancyfoot[L]{Page \thepage}  % Нумерация страниц по центру
+\fancyfoot[R]{\copyright\ Бот для подготовки к ЕГЭ по физике. 2025г}  % Копирайт в правом нижнем углу
+
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{3em}{}
+% делает itemize точки более тонкими
+\setlist[itemize]{label=\scriptsize\textbullet}
+
+
+%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%
+%          document starts here         %
+%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%
+
+\begin{document}
+
+\begin{center}
+\scalebox{2}{\textbf{Статика}}
+\end{center}
+
+\vspace{-2.5em}
+
+\section*{3.1 Момент силы}
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\textbf{Момент силы (M)} — это физическая величина, характеризующая вращательное действие силы на твердое тело.
+
+\vspace{-9pt}
+\subsection*{Формула:}
+\vspace{-3pt}
+Момент силы:
+\vspace{-0.05em}
+$$ M = F \cdot d \cdot \sin(\alpha) $$
+где:
+\begin{enumerate} [itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item $F$ — величина силы, приложенной к телу.
+  \item $d$ — плечо силы (расстояние от оси вращения до линии действия силы).
+  \item $\alpha$ — угол между силой и плечом.
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Единица измерения:}
+\vspace{-3pt}
+\begin{itemize} [itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item $Н \cdot м$ (Ньютон-метр).
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Направление:}
+\vspace{-3pt}
+\textbf{Момент силы} — векторная величина, направление которой определяется правилом правого винта (если вращение против часовой стрелки, то направление "от нас", если по часовой — "к нам").
+
+
+\vspace{-9pt}
+\subsection*{Значение:}
+\vspace{-3pt}
+
+\textbf{Момент силы} показывает, насколько эффективно сила может вращать тело вокруг определенной оси.
+
+
+
+
+\section*{3.2 Условия равновесия твердого тела}
+\vspace{-9pt}
+\subsection*{Первое условие (равенство нулю суммы сил):}
+\vspace{-3pt}
+Сумма всех сил, действующих на твердое тело, должна быть равна нулю. Это гарантирует отсутствие поступательного движения тела:
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=2pt]
+  \item Сумма сил:
+    \vspace{-0.05em}
+    $$ \sum{\vec{F}} = 0 $$
+  \item Проекции сил:
+    \vspace{-0.05em}
+    $$ \sum F_x = 0; \quad \sum F_y = 0; \quad \sum F_z = 0 $$
+\end{enumerate}
+
+\vspace{-9pt}
+\subsection*{Второе условие (равенство нулю суммы моментов сил):}
+\vspace{-3pt}
+\textbf{Сумма моментов всех сил}, действующих на твердое тело относительно любой произвольной оси вращения, \textbf{должна быть равна нулю}. Это гарантирует отсутствие вращательного движения тела:
+$$\sum{\vec{M}} = 0$$
+
+\vspace{-9pt}
+\subsection*{Вместе:}
+\vspace{-3pt}
+Оба условия должны выполняться одновременно для полного равновесия твердого тела.
+
+
+
+
+\section*{3.3 Давление жидкости}
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\textbf{Давление ($P$)} — это физическая величина, характеризующая силу, действующую на единицу площади поверхности перпендикулярно этой поверхности.
+
+\vspace{-9pt}
+\subsection*{Формула давления в жидкости на глубине $h$:}
+\vspace{-3pt}
+\textbf{Единица измерения:} паскаль (Па) или $\frac{H}{M^2}$.
+\vspace{-0.05em}
+$$ P = \rho \cdot g \cdot h, $$
+где:
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=2pt]
+  \item $\rho$ — плотность жидкости.
+  \item $g$ — ускорение свободного падения.
+  \item $h$ — глубина погружения в жидкость (расстояние от поверхности жидкости до рассматриваемой точки).
+\end{enumerate}
+
+
+
+\section*{3.4 Закон Паскаля}
+\vspace{-9pt}
+\subsection*{Формулировка:}
+\vspace{-3pt}
+Давление, производимое на жидкость или газ, передается одинаково во всех направлениях.
+
+\vspace{-9pt}
+\subsection*{Применение:}
+\vspace{-3pt}
+Лежит в основе работы гидравлических машин (прессов, подъемников и т.д.).
+
+\vspace{-9pt}
+\subsection*{Суть:}
+\vspace{-3pt}
+Изменение давления в одной точке жидкости мгновенно передается во все другие точки жидкости.
+
+
+
+\section*{3.5 Закон Архимеда}
+\vspace{-9pt}
+\subsection*{Формулировка:}
+\vspace{-3pt}
+На тело, погруженное в жидкость или газ, действует выталкивающая сила, равная весу жидкости или газа, вытесненного этим телом.
+
+\vspace{-9pt}
+\subsection*{Формула:}
+\vspace{-3pt}
+\vspace{-0.05em}
+$$ F_A = \rho \cdot g \cdot V $$
+где:
+\begin{enumerate} [itemsep=0pt, topsep=0pt, parsep=0pt]
+  \item $F_A$ — сила Архимеда.
+  \item $\rho$ — плотность жидкости или газа.
+  \item $g$ — ускорение свободного падения.
+  \item $V$ — объем погруженной части тела (объем вытесненной жидкости или газа).
+\end{enumerate}
+\vspace{10pt}
+Направлена всегда вертикально вверх.
+
+
+\newpage
+
+
+\section*{3.6 Условия плавания тел}
+\vspace{-9pt}
+\subsection*{Условие плавания (тело плавает на поверхности):}
+\vspace{-3pt}
+Если средняя плотность тела меньше плотности жидкости, то тело плавает на поверхности. В этом случае сила тяжести, действующая на тело, равна силе Архимеда.
+
+\vspace{-9pt}
+\subsection*{Условие плавания (тело плавает в толще жидкости):}
+\vspace{-3pt}
+Если средняя плотность тела равна плотности жидкости, то тело плавает в толще жидкости. Сила тяжести, действующая на тело, равна силе Архимеда.
+
+\vspace{-9pt}
+\subsection*{Условие утопления (тело тонет):}
+\vspace{-3pt}
+Если средняя плотность тела больше плотности жидкости, то тело тонет. Сила тяжести, действующая на тело, больше силы Архимеда.
+
+\vspace{-9pt}
+\subsection*{Формулы:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=2pt]
+  \item Плавание на поверхности:
+    \vspace{-0.05em}
+    $$ m \cdot g = \rho \cdot g \cdot V_{погруж} $$
+    где $V_{погруж}$ — объем погруженной части тела.
+  \item Процент погружения:
+    \vspace{-0.05em}
+    $$ \frac{V_{погруж}}{V_{общ}} = \frac{\rho_{тела}}{\rho_{жидкости}} \cdot 100\% $$
+\end{enumerate}
+
+\end{document}
