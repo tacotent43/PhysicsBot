@@ -29,7 +29,7 @@
 
 ### Используемые технологии
 - **Язык программирования:** Python 3.11+.
-- **Фреймворк:** PyTelegramBotAPI (telebot-0.0.5) (для интеграции с Telegram).
+- **Фреймворк:** PyTelegramBotAPI (telebot-4.26.0) (для интеграции с Telegram).
 - **База данных:** JSON (хранение задач, теорий).
 
 ### Архитектура
@@ -61,42 +61,42 @@
 │   │   │   │   ├── task-2.md
 │   │   │   │   ├── ...
 │   │   │   │   └── task-n.md
-│   │   │   └── theory.md  # файл с теорией
+│   │   │   └── electric-field.pdf  # файл с теорией
 │   │   ├── electromagnetic-induction/
 │   │   │   ├── tasks/
 │   │   │   │   ├── task-1.md
 │   │   │   │   ├── task-2.md
 │   │   │   │   ├── ...
 │   │   │   │   └── task-n.md
-│   │   │   └── theory.md
+│   │   │   └── electromagnetic-induction.pdf
 │   │   ├── electromagnetic-oscillations-and-waves/
 │   │   │   ├── tasks/
 │   │   │   │   ├── task-1.md
 │   │   │   │   ├── task-2.md
 │   │   │   │   ├── ...
 │   │   │   │   └── task-n.md
-│   │   │   └── theory.md
+│   │   │   └── electromagnetic-oscillations-and-waves.pdf
 │   │   ├── fundamentals-of-the-special-theory-of-relativity/
 │   │   │   ├── tasks/
 │   │   │   │   ├── task-1.md
 │   │   │   │   ├── task-2.md
 │   │   │   │   ├── ...
 │   │   │   │   └── task-n.md
-│   │   │   └── theory.md
+│   │   │   └── fundamentals-of-the-special-theory-of-relativity.pdf
 │   │   ├── laws-of-direct-curent/
 │   │   │   ├── tasks/
 │   │   │   │   ├── task-1.md
 │   │   │   │   ├── task-2.md
 │   │   │   │   ├── ...
 │   │   │   │   └── task-n.md
-│   │   │   └── theory.md
+│   │   │   └── laws-of-direct-curent.pdf
 │   │   └──  magnetic-field/
 │   │       ├── tasks/
 │   │       │   ├── task-1.md
 │   │       │   ├── task-2.md
 │   │       │   ├── ...
 │   │       │   └── task-n.md
-│   │       └── theory.md
+│   │       └── magnetic-field.pdf
 │   ├── mechanics/
 │   │   ├── conversation-law-in-mechanics/
 │   │   │   ├── tasks/
@@ -104,28 +104,28 @@
 │   │   │   │   ├── task-2.md
 │   │   │   │   ├── ...
 │   │   │   │   └── task-n.md
-│   │   │   └── theory.md
+│   │   │   └── theory.pdf
 │   │   ├── dynamics/
 │   │   │   ├── tasks/
 │   │   │   │   ├── task-1.md
 │   │   │   │   ├── task-2.md
 │   │   │   │   ├── ...
 │   │   │   │   └── task-n.md
-│   │   │   └── theory.md
+│   │   │   └── theory.pdf
 │   │   ├── kinematics/
 │   │   │   ├── tasks/
 │   │   │   │   ├── task-1.md
 │   │   │   │   ├── task-2.md
 │   │   │   │   ├── ...
 │   │   │   │   └── task-n.md
-│   │   │   └── theory.md
+│   │   │   └── kinematics.pdf
 │   │   └── mechanical-vibrations-and-waves/
 │   │       ├── tasks/
 │   │       │   ├── task-1.md
 │   │       │   ├── task-2.md
 │   │       │   ├── ...
 │   │       │   └── task-n.md
-│   │       └── theory.md
+│   │       └── mechanical-vibrations-and-waves.pdf
 │   ├── quantum-physics/
 │   │   ├── wave-particle-duality
 │   │   │   ├── tasks/
@@ -133,36 +133,36 @@
 │   │   │   │   ├── task-2.md
 │   │   │   │   ├── ...
 │   │   │   │   └── task-n.md
-│   │   │   └── theory.md
+│   │   │   └── wave-particle-duality.pdf
 │   │   ├── atomic-physics/
 │   │   │   ├── tasks/
 │   │   │   │   ├── task-1.md
 │   │   │   │   ├── task-2.md
 │   │   │   │   ├── ...
 │   │   │   │   └── task-n.md
-│   │   │   └── theory.md
+│   │   │   └── atomic-physics.pdf
 │   │   └── physics-of-the-atomic-nucleus/
 │   │       ├── tasks/
 │   │       │   ├── task-1.md
 │   │       │   ├── task-2.md
 │   │       │   ├── ...
 │   │       │   └── task-n.md
-│   │       └── theory.md
+│   │       └── physics-of-the-atomic-nucleus.pdf
 │   └── thermodynamics/
-│       ├── molecular physics and thermodynamics/
+│       ├── molecular-physics-and-thermodynamics/
 │       │   ├── tasks/
 │       │   │   ├── task-1.md
 │       │   │   ├── task-2.md
 │       │   │   ├── ...
 │       │   │   └── task-n.md
-│       │   └── theory.md
+│       │   └── molecular-physics-and-thermodynamics.pdf
 │       └── thermodynamics-theme/
 │           ├── tasks/
 │           │   ├── task-1.md
 │           │   ├── task-2.md
 │           │   ├── ...
 │           │   └── task-n.md
-│           └── theory.md
+│           └── thermodynamics-theme.pdf
 ├── themes.json        # JSON-файл с темами
 ├── config.json        # JSON-файл с конфигом бота (создать)
 ├── scripts.json       # файл для изменения скриптованных фраз
