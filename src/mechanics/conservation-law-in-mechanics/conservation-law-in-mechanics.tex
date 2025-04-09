@@ -19,6 +19,7 @@
 \usepackage{tikz}
 \usepackage{circuitikz} 
 \usepackage{physics}
+
 \usepackage{enumitem}
 
 \geometry{top=2cm, bottom=2cm, left=1cm, right=1cm}
@@ -33,7 +34,6 @@
 
 
 \titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{3em}{}
-\setlist[itemize]{label=\scriptsize\textbullet}
 
 
 %~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%~%
@@ -46,317 +46,83 @@
 \scalebox{2}{\textbf{Законы сохранения}}
 \end{center}
 
-\vspace{-2em}
+\vspace{-2.5em}
 
+\section*{Импульс тела}
 
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item \textbf{Импульс тела} ($p$): Векторная физическая величина, являющаяся мерой механического движения тела. Определяется как произведение массы тела на его скорость.
+\end{itemize}
 
-% % 4.1
-% \section*{4.1 Импульс тела}
-
-% \vspace{-9pt}
-% \subsection*{Определение:}
-% \vspace{-3pt}
-% \textbf{Импульс тела} ($p$): Векторная физическая величина, являющаяся мерой механического движения тела. Определяется как произведение массы тела на его скорость.
-
-% \vspace{-9pt}
-% \subsection*{Формула:}
-% \vspace{-3pt}
-% $$ p = m \cdot v $$
-% \begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=0pt]
-%   \item $p$ – импульс тела;
-%   \item $m$ – масса тела;
-%   \item $v$ – скорость тела.
-% \end{enumerate}
-
-
-% % 4.2
-% \section*{4.2 Импульс системы тел}
-
-% \vspace{-9pt}
-% \subsection*{Определение:}
-% \vspace{-3pt}
-% \textbf{Импульс системы тел} ($P$): Векторная сумма импульсов всех тел, входящих в систему.
-
-% \vspace{-9pt}
-% \subsection*{Формула:}
-% \vspace{-3pt}
-% $$ P = p_1 + p_2 + ... + p_n = m_1v_1 + m_2v_2 + ... + m_nv_n, $$
-% где: 
-% \begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=0pt]
-%   \item $P$ – импульс системы тел;
-%   \item $p_n$ – импульс $n$-го тела;
-%   \item $m_n$ – масса $n$-го тела;
-%   \item $v_n$ – скорость $n$-го тела.
-% \end{enumerate}
-
-
-
-% % 4.3
-% \section*{4.3 Закон сохранения импульса}
-
-% \vspace{-9pt}
-% \subsection*{Определение:}
-% \vspace{-3pt}
-% \textbf{Закон сохранения импульса} --- в замкнутой системе (системе, на которую не действуют внешние силы или сумма внешних сил равна нулю) полный импульс системы остается постоянным с течением времени.
-
-% \vspace{-9pt}
-% \subsection*{Формула:}
-% \vspace{-3pt}
-% \begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=0pt]
-%   \item $P_{\text{начальное}}$ – импульс системы до взаимодействия;
-%   \item $P_{\text{конечное}}$ – импульс системы после взаимодействия;
-%   \item $v_i$ – скорости тел до взаимодействия;
-%   \item $u_i$ – скорости тел после взаимодействия.
-% \end{enumerate}
-
-% \vspace{-9pt}
-% \subsection*{Важно:}
-% \vspace{-3pt}
-% \begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=0pt]
-%   \item Закон выполняется только для замкнутых систем.
-%   \item Применяется для анализа столкновений, реактивного движения и других процессов.
-% \end{enumerate}
-
-
-
-% % 4.4
-% \section*{4.4 Работа силы}
-
-% \vspace{-9pt}
-% \subsection*{Определение:}
-% \vspace{-3pt}
-% \textbf{Работа силы ($A$)} --- скалярная физическая величина, являющаяся мерой действия силы на тело, в результате которого происходит перемещение тела.
-
-% \vspace{-9pt}
-% \subsection*{Формула (для постоянной силы и прямолинейного движения):}
-% \vspace{-3pt}
-% $$ A = F \cdot s \cdot \cos{\alpha}, $$
-% где: 
-% \begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=0pt]
-%   \item $A$ --- работа силы;
-%   \item $F$ --- модуль силы;
-%   \item $s$ --- формула перемещения силы;
-%   \item $\alpha$ --- угол между направлением силы и направлением перемещения.
-% \end{enumerate}
-
-% \vspace{9pt}
-% \subsection*{Частные случаи:}
-% \vspace{-3pt}
-% \begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=0pt]
-%   \item Если сила и перемещение сонаправлены ($\alpha=0\degree$), то $A = F \cdot s$ (работа положительная);
-%   \item Если сила и перемещение противоположно направлены ($\alpha=180\degree$), то $A = -Fs$ (работа отрицательная);
-%   \item Если сила перпендикулярна перемещению ($\alpha=90\degree$), то $A = 0$ (работа равна нулю).
-% \end{enumerate}
-
-
-
-% % 4.5
-% \section*{4.5 Мощность}
-
-% \vspace{-9pt}
-% \subsection*{Определение:}
-% \vspace{-3pt}
-% \textbf{Мощность ($P$)} --- cкалярная физическая величина, характеризующая скорость совершения работы.
-
-% \vspace{-9pt}
-% \subsection*{Формула:}
-% \vspace{-3pt}
-% $$ P = \frac{A}{t}, $$
-% где:
-% \begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=0pt]
-%   \item $P$ --- мощность;
-%   \item $A$ --- работа;
-%   \item $t$ --- время, за которое совершена работа.
-% \end{enumerate}
-
-
-
-% \vspace{-9pt}
-% \section*{Импульс тела:}
-% \vspace{-3pt}
-% Импульс тела \(\vec{p}\) — векторная величина, равная произведению массы тела \(m\) на его скорость \(\vec{v}\):
-% $$
-% \vec{p} = m \vec{v}.
-% $$
-
-% \vspace{-9pt}
-% \section*{Импульс системы тел:}
-% \vspace{-3pt}
-% Импульс системы тел равен векторной сумме импульсов всех тел, входящих в систему:
-% $$
-% \vec{p}_{\text{системы}} = \sum_{i=1}^n \vec{p}_i = \sum_{i=1}^n m_i \vec{v}_i.
-% $$
-
-% \vspace{-9pt}
-% \section*{Закон сохранения импульса:}
-% \vspace{-3pt}
-% Если сумма внешних сил, действующих на систему, равна нулю, то импульс системы сохраняется:
-% $$
-% \vec{p}_{\text{системы}} = \text{const}.
-% $$
-
-% \vspace{-9pt}
-% \section*{Работа силы:}
-% \vspace{-3pt}
-% Работа \(A\) силы \(\vec{F}\) на перемещении \(\vec{s}\) равна скалярному произведению вектора силы на вектор перемещения:
-% $$
-% A = \vec{F} \cdot \vec{s} = F s \cos \alpha,
-% $$
-% где \(\alpha\) — угол между вектором силы и вектором перемещения.
-
-% \vspace{-9pt}
-% \section*{Мощность:}
-% \vspace{-3pt}
-% Мощность \(P\) — скалярная величина, равная отношению работы \(A\) ко времени \(t\), за которое она совершена:
-% $$
-% P = \frac{A}{t}.
-% $$
-
-% \vspace{-9pt}
-% \section*{Работа как мера изменения энергии:}
-% \vspace{-3pt}
-% Работа силы равна изменению кинетической энергии тела:
-% $$
-% A = \Delta E_k = E_{k2} - E_{k1}.
-% $$
-
-% \vspace{-9pt}
-% \section*{Кинетическая энергия:}
-% \vspace{-3pt}
-% Кинетическая энергия \(E_k\) тела массой \(m\), движущегося со скоростью \(v\):
-% $$
-% E_k = \frac{m v^2}{2}.
-% $$
-
-% \vspace{-9pt}
-% \section*{Потенциальная энергия:}
-% \vspace{-3pt}
-% Потенциальная энергия \(E_p\) тела в гравитационном поле на высоте \(h\):
-% $$
-% E_p = m g h,
-% $$
-% где \(g\) — ускорение свободного падения.
-
-% \vspace{-9pt}
-% \section*{Закон сохранения механической энергии:}
-% \vspace{-3pt}
-% Если система замкнута и консервативна, то полная механическая энергия системы сохраняется:
-% $$
-% E_{\text{мех}} = E_k + E_p = \text{const}.
-% $$
-
-
-
-\section*{4.1 Импульс тела}
-\textbf{Импульс тела $\vec{p}$} — векторная величина, равная произведению массы тела \(m\) на его скорость \(\vec{v}\):
-\vspace{-0.3em}
-$$\vec{p} = m \vec{v},$$
-где:
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
-  \setlength\itemsep{0em}
-  \item \(m\) — масса тела (кг),
-  \item \(\vec{v}\) — скорость тела (м/с).
+\vspace{-9pt}
+\subsection*{Формула}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item \textbf{Формула}: \[ p = m \cdot v \]
+    \begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+      \item $p$ – импульс тела,
+      \item $m$ – масса тела,
+      \item $v$ – скорость тела.
+    \end{itemize}
 \end{itemize}
 
 
-\section*{4.2 Импульс системы тел}
-Импульс системы тел равен векторной сумме импульсов всех тел, входящих в систему:
-\vspace{-0.3em}
-$$\vec{p}_{\text{системы}} = \sum_{i=1}^n \vec{p}_i = \sum_{i=1}^n m_i \vec{v}_i,$$
-где:
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
-  \setlength\itemsep{0em}
-  \item \(m_i\) — масса \(i\)-го тела (кг),
-  \item \(\vec{v}_i\) — скорость \(i\)-го тела (м/с),
-  \item \(n\) — количество тел в системе.
+
+\section*{Импульс системы тел}
+
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item \textbf{Импульс системы тел} ($P$): Векторная сумма импульсов всех тел, входящих в систему.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Формула}
+\vspace{-3pt}
+\[ P = p_1 + p_2 + ... + p_n = m_1v_1 + m_2v_2 + ... + m_nv_n \]
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item $P$ – импульс системы тел,
+  \item $p_n$ – импульс $n$-го тела,
+  \item $m_n$ – масса $n$-го тела,
+  \item $v_n$ – скорость $n$-го тела.
+\end{enumerate}
+
+
+\vspace{-9pt}
+\subsection*{Определение}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item \textbf{Закон сохранения импульса}: В замкнутой системе (системе, на которую не действуют внешние силы или сумма внешних сил равна нулю) полный импульс системы остается постоянным с течением времени.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Формула}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item \textbf{Формула}: \[ P_{\text{начальное}} = P_{\text{конечное}} \] \[ m_1v_1 + m_2v_2 + ... + m_nv_n = m_1u_1 + m_2u_2 + ... + m_nu_n \]
+    \begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+      \item $P_{\text{начальное}}$ – импульс системы до взаимодействия,
+      \item $P_{\text{конечное}}$ – импульс системы после взаимодействия,
+      \item $v_i$ – скорости тел до взаимодействия,
+      \item $u_i$ – скорости тел после взаимодействия.
+    \end{itemize}
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Важно}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+  \item Закон выполняется только для замкнутых систем.
+  \item Применяется для анализа столкновений, реактивного движения и других процессов.
 \end{itemize}
 
 
-\section*{4.3 Закон сохранения импульса}
-Если сумма внешних сил, действующих на систему, равна нулю, то импульс системы сохраняется:
-\vspace{-0.3em}
-$$\vec{p}_{\text{системы}} = \text{const},$$
-где:
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
-  \setlength\itemsep{0em}
-  \item \(\vec{p}_{\text{системы}}\) — импульс системы (кг·м/с),
-  \item \(\text{const}\) — постоянная величина.
-\end{itemize}
 
 
-\section*{4.4 Работа силы}
-Работа \(A\) силы \(\vec{F}\) на перемещении \(\vec{s}\) равна скалярному произведению вектора силы на вектор перемещения:
-\vspace{-0.3em}
-$$A = \vec{F} \cdot \vec{s} = F s \cos \alpha,$$
-где:
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
-  \setlength\itemsep{0em}
-  \item \(F\) — модуль силы (Н),
-  \item \(s\) — модуль перемещения (м),
-  \item \(\alpha\) — угол между вектором силы и вектором перемещения.
-\end{itemize}
-
-
-\section*{4.5 Мощность}
-Мощность \(P\) — скалярная величина, равная отношению работы \(A\) ко времени \(t\), за которое она совершена:
-\vspace{-0.3em}
-$$P = \frac{A}{t},$$
-где:
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
-  \item \(A\) — работа (Дж),
-  \item \(t\) — время (с).
-\end{itemize}
-
-
-\section*{4.6 Работа как мера изменения энергии}
-Работа силы равна изменению кинетической энергии тела:
-\vspace{-0.3em}
-$$A = \Delta E_k = E_{k2} - E_{k1},$$
-где:
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
-  \setlength\itemsep{0em}
-  \item \(E_{k1}\) — начальная кинетическая энергия (Дж),
-  \item \(E_{k2}\) — конечная кинетическая энергия (Дж).
-\end{itemize}
-
-
-\section*{4.7 Кинетическая энергия}
-Кинетическая энергия \(E_k\) тела массой \(m\), движущегося со скоростью \(v\):
-\vspace{-0.3em}
-$$E_k = \frac{m v^2}{2},$$
-где:
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
-  \setlength\itemsep{0em}
-  \item \(m\) — масса тела (кг),
-  \item \(v\) — скорость тела (м/с).
-\end{itemize}
-
-
-\section*{4.8 Потенциальная энергия}
-Потенциальная энергия \(E_p\) тела в гравитационном поле на высоте \(h\):
-\vspace{-0.3em}
-$$E_p = m g h,$$
-где:
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
-  \setlength\itemsep{0em}
-  \item \(m\) — масса тела (кг),
-  \item \(g\) — ускорение свободного падения (\(g \approx 9.81 \, \text{м/с}^2\)),
-  \item \(h\) — высота над нулевым уровнем (м).
-\end{itemize}
-
-
-\section*{4.9 Закон сохранения механической энергии}
-Если система замкнута и консервативна, то полная механическая энергия системы сохраняется:
-\vspace{-0.3em}
-$$E_{\text{мех}} = E_k + E_p = \text{const},$$
-\vspace{-0.3em}
-где:
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
-  \setlength\itemsep{0em}
-  \item \(E_k\) — кинетическая энергия (Дж),
-  \item \(E_p\) — потенциальная энергия (Дж),
-  \item \(\text{const}\) — постоянная величина.
-\end{itemize}
 
 
 

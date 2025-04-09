@@ -1,0 +1,294 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{graphicx} 
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{circuitikz} 
+\usepackage{physics}
+
+\usepackage{enumitem}
+
+\geometry{top=2cm, bottom=2cm, left=1cm, right=1cm}
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot[C]{\rule[20pt]{\textwidth}{0.4pt}}
+\fancyhead{} 
+\fancyfoot[L]{Page \thepage} 
+\fancyfoot[R]{\copyright\ Бот для подготовки к ЕГЭ по физике. 2025г} 
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{3em}{}
+\setlist[itemize]{label=\scriptsize\textbullet}
+
+
+\begin{document}
+
+\begin{center}
+\scalebox{2}{\textbf{Электромагнитные колебания и волны}}
+\end{center}
+
+\vspace{-2.5em}
+
+%%%%%%%%%%%%%%%%%
+% \section*{}
+
+
+% \vspace{-9pt}
+% \subsection*{}
+% \vspace{-3pt}
+
+
+% \begin{enumerate} [itemsep=0pt, topsep=0pt, parsep=0pt]
+%   \item $p$ – импульс тела;
+%   \item $m$ – масса тела;
+%   \item $v$ – скорость тела.
+% \end{enumerate}
+
+
+% [itemsep=0pt, topsep=0pt, parsep=0pt]
+%%%%%%%%%%%%%%%%%
+
+\section*{3.6.1 Прямолинейное распространение света}
+\vspace{-9pt}
+\subsection*{Закон:}
+\vspace{-3pt}
+В однородной среде свет распространяется по прямой.
+
+\vspace{-9pt}
+\subsection*{Примеры:}
+\vspace{-3pt}
+\begin{itemize}
+    \item Образование тени.
+    \item Солнечные и лунные затмения.
+\end{itemize}
+
+
+\section*{3.6.2 Закон отражения света}
+\vspace{-9pt}
+\subsection*{Формулировка:}
+\vspace{-3pt}
+Угол падения равен углу отражения.
+
+\vspace{-9pt}
+\subsection*{Дополнение:}
+\vspace{-3pt}
+Падающий луч, отраженный луч и нормаль к поверхности лежат в одной плоскости.
+
+
+\section*{3.6.3 Построение изображений в плоском зеркале}
+\vspace{-9pt}
+\subsection*{Изображение:}
+\vspace{-3pt}
+Мнимое, прямое, равное по размеру предмету, симметричное относительно плоскости зеркала.
+
+\vspace{-9pt}
+\subsection*{Правило:}
+\vspace{-3pt}
+Изображение точки находится на том же расстоянии от зеркала, что и предмет, но с противоположной стороны.
+
+
+\section*{3.6.4 Закон преломления света}
+\vspace{-9pt}
+\subsection*{Формулировка:}
+\vspace{-3pt}
+Отношение синуса угла падения к синусу угла преломления есть величина постоянная для двух данных сред:
+\vspace{-0.05em}
+$$ \frac{\sin(\alpha)}{\sin(\beta)} = \frac{n_2}{n_1} = n_{21} $$
+где:
+\begin{itemize}
+    \item $n_{21}$ — относительный показатель преломления среды 2 относительно среды 1.
+    \item $n$ — абсолютный показатель преломления среды.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Дополнение:}
+\vspace{-3pt}
+Падающий луч, преломленный луч и нормаль к поверхности лежат в одной плоскости.
+
+
+\section*{3.6.5 Полное внутреннее отражение}
+\vspace{-9pt}
+\subsection*{Условие:}
+\vspace{-3pt}
+Свет падает из среды с большим показателем преломления в среду с меньшим показателем преломления под углом, большим критического угла.
+
+\vspace{-9pt}
+\subsection*{Критический угол:}
+\vspace{-3pt}
+\subsubsection*{Формула:}
+\vspace{-0.05em}
+$$ \sin(\alpha_{\text{кр}}) = \frac{n_2}{n_1} $$
+
+\vspace{-9pt}
+\subsection*{Явление:}
+\vspace{-3pt}
+Свет полностью отражается от границы раздела двух сред, не выходя во вторую среду.
+
+\vspace{-9pt}
+\subsection*{Примеры:}
+\vspace{-3pt}
+\begin{itemize}
+    \item Волоконная оптика.
+    \item Алмазы.
+\end{itemize}
+
+
+\section*{3.6.6 Линзы. Оптическая сила линзы}
+\vspace{-9pt}
+\subsection*{Линза:}
+\vspace{-3pt}
+Прозрачное тело, ограниченное двумя сферическими поверхностями.
+
+\vspace{-9pt}
+\subsection*{Собирающая линза:}
+\vspace{-3pt}
+Линза, у которой лучи света, проходящие через нее, сходятся в фокусе.
+\begin{itemize}
+    \item Фокусное расстояние ($F$) > 0.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Рассеивающая линза:}
+\vspace{-3pt}
+Линза, у которой лучи света, проходящие через нее, расходятся.
+\begin{itemize}
+    \item Фокусное расстояние ($F$) < 0.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Оптическая сила линзы ($D$):}
+\vspace{-3pt}
+Величина, обратная фокусному расстоянию линзы.
+\subsubsection*{Формула:}
+\vspace{-0.05em}
+$$ D = \frac{1}{F} $$
+\subsubsection*{Единица измерения:} диоптрия (дптр). 1 дптр = 1 $м^{-1}$.
+
+\section*{3.6.7 Формула тонкой линзы}
+\vspace{-9pt}
+\subsubsection*{Формула:}
+\vspace{-0.05em}
+$$ \frac{1}{d} + \frac{1}{f} = \frac{1}{F} $$
+где:
+\begin{itemize}
+    \item $d$ — расстояние от предмета до линзы.
+    \item $f$ — расстояние от линзы до изображения.
+    \item $F$ — фокусное расстояние линзы.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Линейное увеличение линзы:}
+\vspace{-3pt}
+\subsubsection*{Формула:}
+\vspace{-0.05em}
+$$ Г = \frac{f}{d} $$
+
+\section*{3.6.8 Построение изображений в линзах}
+\vspace{-9pt}
+\subsection*{Изображения:}
+\vspace{-3pt}
+Могут быть действительными (пересечение лучей) или мнимыми (пересечение продолжений лучей), прямыми или перевернутыми, увеличенными или уменьшенными.
+
+\vspace{-9pt}
+\subsection*{Правила:}
+\vspace{-3pt}
+\begin{enumerate}[itemsep=0pt, topsep=0pt, parsep=3pt]
+    \item Луч, идущий параллельно главной оптической оси, после преломления проходит через фокус.
+    \item Луч, проходящий через оптический центр линзы, не меняет своего направления.
+    \item Луч, проходящий через фокус, после преломления идет параллельно главной оптической оси.
+\end{enumerate}
+
+
+\section*{3.6.9 Оптические приборы. Глаз как оптическая система}
+\vspace{-9pt}
+\subsection*{Оптические приборы:}
+\vspace{-3pt}
+Устройства, использующие линзы для получения изображения (лупа, микроскоп, телескоп, фотоаппарат).
+
+\vspace{-9pt}
+\subsection*{Глаз:}
+\vspace{-3pt}
+Сложная оптическая система, фокусирующая изображение на сетчатке.
+\begin{itemize}
+    \item Хрусталик глаза является линзой.
+    \item Дефекты зрения (близорукость, дальнозоркость) корректируются линзами.
+\end{itemize}
+
+\newpage
+\section*{3.6.10 Интерференция света}
+\vspace{-9pt}
+\subsection*{Интерференция света:}
+\vspace{-3pt}
+Сложение световых волн, при котором наблюдается усиление или ослабление результирующей амплитуды.
+
+\vspace{-9pt}
+\subsection*{Условие для максимума:}
+\vspace{-3pt}
+Разность хода волн должна быть равна целому числу длин волн:
+\vspace{-0.05em}
+$$ \Delta d = m\lambda $$
+
+\vspace{-9pt}
+\subsection*{Условие для минимума:}
+\vspace{-3pt}
+Разность хода волн должна быть равна полуцелому числу длин волн:
+\vspace{-0.05em}
+$$ \Delta d = \left(m + \frac{1}{2}\right)\lambda $$
+
+
+\section*{3.6.11 Дифракция света}
+\vspace{-9pt}
+\subsection*{Дифракция света:}
+\vspace{-3pt}
+Огибание световыми волнами препятствий.
+
+\vspace{-9pt}
+\subsection*{Наблюдение:}
+\vspace{-3pt}
+Проявляется при прохождении света через узкие щели или отверстия, а также при обходе краев препятствий.
+
+
+\section*{3.6.12 Дифракционная решетка}
+\vspace{-9pt}
+\subsection*{Дифракционная решетка:}
+\vspace{-3pt}
+Оптический прибор, представляющий собой совокупность большого числа параллельных равноотстоящих щелей.
+
+\vspace{-9pt}
+\subsubsection*{Формула:}
+\vspace{-0.05em}
+$$ d \cdot \sin(\alpha) = m\lambda $$
+где:
+\begin{itemize}
+    \item $d$ — период (постоянная) решетки.
+    \item $\alpha$ — угол дифракции.
+    \item $m$ — порядок дифракционного максимума.
+    \item $\lambda$ — длина волны света.
+\end{itemize}
+\newpage
+\section*{3.6.13 Дисперсия света}
+\vspace{-9pt}
+\subsection*{Дисперсия света:}
+\vspace{-3pt}
+Зависимость показателя преломления вещества от частоты света.
+
+\vspace{-9pt}
+\subsection*{Призма:}
+\vspace{-3pt}
+Разложение белого света на спектр при прохождении через призму (разные длины волн отклоняются на разные углы).
+
+\end{document}

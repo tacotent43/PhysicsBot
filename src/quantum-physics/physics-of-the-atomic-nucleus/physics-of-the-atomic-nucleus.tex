@@ -1,0 +1,143 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{graphicx} 
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{circuitikz} 
+\usepackage{physics}
+
+\usepackage{enumitem}
+
+\geometry{top=2cm, bottom=2cm, left=1cm, right=1cm}
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot[C]{\rule[20pt]{\textwidth}{0.4pt}}
+\fancyhead{} 
+\fancyfoot[L]{Page \thepage} 
+\fancyfoot[R]{\copyright\ Бот для подготовки к ЕГЭ по физике. 2025г} 
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{3em}{}
+\setlist[itemize]{label=\scriptsize\textbullet}
+
+\begin{document}
+
+\begin{center}
+    \scalebox{2}{\textbf{Физика атомного ядра}}
+\end{center}
+
+\vspace{-2em}
+
+%%%%%%%%%%%%%%%%%
+% \section*{}
+
+
+% \vspace{-9pt}
+% \subsection*{}
+% \vspace{-3pt}
+
+
+% \begin{enumerate} [itemsep=0pt, topsep=0pt, parsep=0pt]
+%   \item $p$ – импульс тела;
+%   \item $m$ – масса тела;
+%   \item $v$ – скорость тела.
+% \end{enumerate}
+
+
+% [itemsep=0pt, topsep=0pt, parsep=0pt]
+%%%%%%%%%%%%%%%%%
+
+
+\section*{5.3.1 Радиоактивность. Альфа-распад. Бетта-распад. Гамма-излучение}
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+    \item Радиоактивность: Явление самопроизвольного распада атомных ядер.
+    \item Альфа-распад: Испускание ядром альфа-частицы (ядро гелия).
+    \item Бетта-распад: Испускание ядром электрона или позитрона.
+    \item Гамма-излучение: Испускание ядром фотонов высокой энергии.
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Виды излучения:}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+    \item Альфа-частицы: положительно заряженные ядра гелия.
+    \item Бетта-частицы: электроны или позитроны.
+    \item Гамма-кванты: фотоны с высокой энергией.
+\end{itemize}
+
+\section*{5.3.2 Закон радиоактивного распада}
+\vspace{-9pt}
+\subsection*{Формула:}
+\vspace{-3pt}
+\vspace{-0.05em}
+$$ N(t) = N_0 \cdot e^{-\lambda t} $$где:
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+        \item $N(t)$ – число нераспавшихся ядер в момент времени t,
+        \item $N_0$ – начальное число ядер,
+        \item $\lambda$ – постоянная распада,
+        \item $t$ - время распада.
+\end{itemize}
+
+
+\vspace{-9pt}
+\subsection*{Период полураспада:}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+    \item Период полураспада ($T_{\frac{1}{2}}$): время, за которое распадается половина начального числа ядер.
+    \vspace{-0.05em}
+    $$ T_{\frac{1}{2}}= \frac{ln2}{\lambda} $$
+\end{itemize}
+
+\section*{5.3.3 Нуклонная модель ядра. Заряд ядра. Массовое число ядра}
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+    \item Нуклонная модель: Ядро состоит из протонов и нейтронов (нуклонов).
+    \item Протоны: Положительно заряженные частицы (заряд +e). Число протонов определяет заряд ядра и порядковый номер элемента в таблице Менделеева.
+    \item Нейтроны: Нейтральные частицы.
+    \item Заряд ядра ($Z$): Число протонов в ядре.
+    \item Массовое число ядра ($A$): Общее число протонов и нейтронов в ядре.
+\end{itemize}
+
+\section*{5.3.4 Энергия связи нуклонов в ядре. Ядерные силы}
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+    \item Энергия связи: Энергия, необходимая для полного расщепления ядра на отдельные нуклоны.
+    \item Дефект массы ($\Delta m$): Разность между суммой масс свободных нуклонов и массой ядра.
+    \item Формула:
+     \vspace{-0.05em}
+    $$ E_{св} = \Delta mc^2 $$
+    \item Ядерные силы: Сильные взаимодействия, удерживающие нуклоны в ядре.
+\end{itemize}
+
+\section*{5.3.5 Ядерные реакции. Деление и синтез ядер}
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=3pt]
+    \item Ядерные реакции: Преобразование атомных ядер при взаимодействии с другими частицами или ядрами.
+    \item Деление ядер: Распад тяжелого ядра на два или более легких ядра с выделением энергии (используется в ядерных реакторах).
+    \item Синтез ядер: Слияние легких ядер в более тяжелые ядра с выделением энергии (происходит в звездах и термоядерных реакторах).
+\end{itemize}
+
+\end{document}
