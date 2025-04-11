@@ -32,7 +32,7 @@
           "answer": ""
         }
       ],
-      "Теория": ""
+      "Теория": "src/mechanics/dynamics/dynamics.pdf"
     },
     "Статика": {
       "Задачи": [
@@ -49,7 +49,7 @@
           "answer": ""
         }
       ],
-      "Теория": ""
+      "Теория": "src/mechanics/statics/statics.pdf"
     },
     "Закон сохранения в механике": {
       "Задачи": [
@@ -66,7 +66,7 @@
           "answer": ""
         }
       ],
-      "Теория": ""
+      "Теория": "src/mechanics/conservation-law-in-mechanics/conservation-law-in-mechanics.pdf"
     },
     "Механические колебания и волны": {
       "Задачи": [
@@ -83,7 +83,7 @@
           "answer": ""
         }
       ],
-      "Теория": ""
+      "Теория": "src/mechanics/mechanical-vibrations-and-waves/mechanical-vibrations-and-waves.pdf"
     }
   },
   "Электродинамика": {
@@ -102,7 +102,7 @@
           "answer": ""
         }
       ],
-      "Теория": ""
+      "Теория": "src/electrodynamics/electric-field/electric-field.pdf"
     },
     "Законы постоянного тока": {
       "Задачи": [
@@ -119,7 +119,7 @@
           "answer": ""
         }
       ],
-      "Теория": ""
+      "Теория": "src/electrodynamics/laws-of-direct-curent/laws-of-direct-curent.pdf"
     },
     "Магнитное поле": {
       "Задачи": [
