@@ -9,121 +9,172 @@
 # For licensing inquiries, please contact the owner.
 
 import json
-from typing import Dict, List, Tuple
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
-def read_from_json(filename: str) -> dict:
-  with open(f"{filename}.json", "r", encoding="utf-8") as fp:
-    return json.load(fp)
+@dataclass
+class UserData:
+  # List of selected menu paths (navigation history)
+  paths: List[str] = field(default_factory=list)
+  # List of bot responses to the user
+  answers: List[str] = field(default_factory=list)
 
-config = read_from_json("config")
-all_themes = read_from_json("themes")
-scripts = read_from_json("scripts")
 
-bot = Bot(token=config["token"])
-dp = Dispatcher()
-
-START_HELLO_COMMAND = scripts["start_hello_command"]
-BACK_BUTTON = scripts["back"]
-SOLVE_TASKS = scripts["solve_tasks"]
-READ_THEORY = scripts["read_theory"]
-
-users: Dict[int, Tuple[List[str], List[str]]] = {}
-
-def get_user(user_id: int) -> Tuple[List[str], List[str]]:
-  if user_id not in users:
-    users[user_id] = ([], [])
-  return users[user_id]
-
-def get_by_path(path: List[str]) -> dict:
-  current = all_themes
-  for step in path:
-    current = current[step]
-  return current
-
-def pluralize_tasks(n: int) -> str:
-  if n % 10 == 1 and n % 100 != 11:
-    return "задача"
-  elif 2 <= n % 10 <= 4 and (n % 100 < 10 or n % 100 >= 20):
-    return "задачи"
-  return "задач"
-
-def create_keyboard(items: List[str]) -> ReplyKeyboardMarkup:
-  builder = ReplyKeyboardBuilder()
-  for item in items:
-    builder.add(KeyboardButton(text=item))
-  builder.add(KeyboardButton(text=BACK_BUTTON))
-  builder.adjust(2)
-  return builder.as_markup(resize_keyboard=True)
-
-async def update_state(message: types.Message):
-  user_id = message.chat.id
-  path, answers = get_user(user_id)
-  current = get_by_path(path)
+class UserStorage:
+  def __init__(self):
+    # Dictionary to store user data (user_id -> UserData)
+    self._users: Dict[int, UserData] = {}
   
-  if path and path[-1] == "Теория":
-    filepath = get_by_path(path)
-    with open(filepath, "rb") as theory_file:
-      await bot.send_document(user_id, theory_file)
+  # Add new user to storage
+  def add_user(self, user_id: int) -> None:
+    self._users[user_id] = UserData()
+  
+  # Get user data (creates new entry if doesn't exist)
+  def get_user(self, user_id: int) -> UserData:
+    if user_id not in self._users:
+      self.add_user(user_id)
+    return self._users[user_id]
+  
+  # Reset user data to initial state
+  def clear_user(self, user_id: int) -> None:
+    if user_id in self._users:
+      self._users[user_id] = UserData()
+
+
+class ThemeBot:
+  def __init__(self):
+    # Load configuration files
+    self.config = self._read_from_json("config")
+    self.all_themes = self._read_from_json("themes")
+    self.scripts = self._read_from_json("scripts")
+    
+    # Initialize bot and dispatcher
+    self.bot = Bot(token=self.config["token"])
+    self.dp = Dispatcher()
+    self.users = UserStorage()
+    
+    # Set up message handlers
+    self._register_handlers()
+
+  # Helper method to read JSON files
+  @staticmethod
+  def _read_from_json(filename: str) -> dict:
+    with open(f"{filename}.json", "r", encoding="utf-8") as fp:
+      return json.load(fp)
+
+  # Register all message handlers
+  def _register_handlers(self) -> None:
+    # /start command handler
+    self.dp.message.register(self._start_command, Command("start"))
+    # /choose command handler
+    self.dp.message.register(self._main_menu, Command("choose"))
+    # Theme selection handler
+    self.dp.message.register(self._theme_handler, 
+      lambda message: message.text in self._get_by_path(
+        self.users.get_user(message.chat.id).paths))
+    # Back button handler
+    self.dp.message.register(self._back_handler,
+      lambda message: message.text == self.scripts["back"])
+
+  # Get current menu level based on navigation path
+  def _get_by_path(self, path: List[str]) -> dict:
+    current = self.all_themes
+    for step in path:
+      current = current[step]
+    return current
+
+  # Pluralize "task" based on count
+  @staticmethod
+  def _pluralize_tasks(n: int) -> str:
+    if n % 10 == 1 and n % 100 != 11:
+      return "задача"
+    elif 2 <= n % 10 <= 4 and (n % 100 < 10 or n % 100 >= 20):
+      return "задачи"
+    return "задач"
+
+  # Create reply keyboard with dynamic buttons
+  def _create_keyboard(self, items: List[str]) -> ReplyKeyboardMarkup:
+    builder = ReplyKeyboardBuilder()
+    for item in items:
+      builder.add(KeyboardButton(text=item))
+    builder.add(KeyboardButton(text=self.scripts["back"]))
+    builder.adjust(2)
+    return builder.as_markup(resize_keyboard=True)
+
+  # Update bot state based on current navigation
+  async def _update_state(self, message: types.Message) -> None:
+    user = self.users.get_user(message.chat.id)
+    current = self._get_by_path(user.paths)
+    
+    # Handle theory selection - send theory file
+    if user.paths and user.paths[-1] == "Теория":
+      filepath = self._get_by_path(user.paths)
+      await message.answer(
+        f"Отлично! Держи файл с теорией на тему '{user.paths[-2]}'.",
+        reply_markup=self._create_keyboard([])
+      )
+      with open(filepath, "rb") as theory_file:
+        await self.bot.InputFile(message.chat.id, theory_file)
+      return
+    
+    # Handle tasks selection - show tasks count
+    if user.paths and user.paths[-1] == "Задачи":
+      await message.answer(
+        f"В базе {len(current)} {self._pluralize_tasks(len(current))} по теме {user.paths[-2]}",
+        reply_markup=self._create_keyboard([])
+      )
+      return
+    
+    # Create keyboard for current menu level
+    keyboard = self._create_keyboard(list(current.keys()))
+    
+    # Show main menu if no answers exist
+    if not user.answers:
+      await self._main_menu(message)
+      return
+    
+    # Send last response with appropriate keyboard
+    await message.answer(user.answers[-1], reply_markup=keyboard)
+
+  # Handle /start command - reset and greet user
+  async def _start_command(self, message: types.Message) -> None:
+    self.users.clear_user(message.chat.id)
     await message.answer(
-      f"Отлично! Держи файл с теорией на тему '{path[-2]}'.",
-      reply_markup=create_keyboard([])
+      f"Привет, {message.from_user.first_name}!\n{self.scripts['start_hello_command']}"
     )
-    return
-  
-  if path and path[-1] == "Задачи":
-    await message.answer(
-      f"В базе {len(current)} {pluralize_tasks(len(current))} по теме {path[-2]}",
-      reply_markup=create_keyboard([])
-    )
-    return
-  
-  keyboard = create_keyboard(list(current.keys()))
-  
-  if not answers:
-    await main_menu(message)
-    return
-  
-  await message.answer(answers[-1], reply_markup=keyboard)
+    await self._main_menu(message)
 
-@dp.message(Command("start"))
-async def start_command(message: types.Message):
-  user_id = message.chat.id
-  users[user_id] = ([], [])
-  await message.answer(f"Привет, {message.from_user.first_name}!\n{START_HELLO_COMMAND}")
-  await main_menu(message)
+  # Show main menu options
+  async def _main_menu(self, message: types.Message) -> None:
+    user = self.users.get_user(message.chat.id)
+    user.answers.append("Выбери интересующий тебя раздел:")
+    await self._update_state(message)
 
-@dp.message(Command("choose"))
-async def main_menu(message: types.Message):
-  user_id = message.chat.id
-  path, answers = get_user(user_id)
-  answers.append("Выбери интересующий тебя раздел:")
-  await update_state(message)
+  # Handle theme selection - navigate deeper
+  async def _theme_handler(self, message: types.Message) -> None:
+    user = self.users.get_user(message.chat.id)
+    user.paths.append(message.text)
+    user.answers.append(f"Выбери интересующий тебя подраздел в теме '{message.text}':")
+    await self._update_state(message)
 
-@dp.message(lambda message: message.text in get_by_path(get_user(message.chat.id)[0]))
-async def theme_handler(message: types.Message):
-  user_id = message.chat.id
-  path, answers = get_user(user_id)
-  path.append(message.text)
-  answers.append(f"Выбери интересующий тебя подраздел в теме '{message.text}':")
-  await update_state(message)
+  # Handle back button - navigate up
+  async def _back_handler(self, message: types.Message) -> None:
+    user = self.users.get_user(message.chat.id)
+    if user.paths:
+      user.paths.pop()
+    if len(user.answers) > 1:
+      user.answers.pop()
+    await self._update_state(message)
 
-@dp.message(lambda message: message.text == BACK_BUTTON)
-async def back_handler(message: types.Message):
-  user_id = message.chat.id
-  path, answers = get_user(user_id)
-  if path:
-    path.pop()
-  if len(answers) > 1:
-    answers.pop()
-  await update_state(message)
-
-async def main():
-  await dp.start_polling(bot)
+  # Start the bot
+  async def run(self) -> None:
+    await self.dp.start_polling(self.bot)
 
 if __name__ == "__main__":
+  bot = ThemeBot()
   import asyncio
-  asyncio.run(main())
+  asyncio.run(bot.run())
