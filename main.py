@@ -117,8 +117,9 @@ class ThemeBot:
         f"Отлично! Держи файл с теорией на тему '{user.paths[-2]}'.",
         reply_markup=self._create_keyboard([])
       )
+      print("DEBUG:", message.chat.id, "requested file", filepath)
       with open(filepath, "rb") as theory_file:
-        await self.bot.InputFile(message.chat.id, theory_file)
+        await self.bot.send_document(message.chat.id, theory_file)
       return
     
     # Handle tasks selection - show tasks count
@@ -146,6 +147,7 @@ class ThemeBot:
     await message.answer(
       f"Привет, {message.from_user.first_name}!\n{self.scripts['start_hello_command']}"
     )
+    print("DEBUG:", message.chat.id, "sent /start command")
     await self._main_menu(message)
 
   # Show main menu options
@@ -173,6 +175,11 @@ class ThemeBot:
   # Start the bot
   async def run(self) -> None:
     await self.dp.start_polling(self.bot)
+
+# TODO: починить отправку документов
+# TODO: реализовать отправку задач
+# TODO: реализовать анализ ответов, отправку фидбека
+# TODO: реализовать отправку правильных решений
 
 if __name__ == "__main__":
   bot = ThemeBot()

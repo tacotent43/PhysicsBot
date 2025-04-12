@@ -1,298 +1,77 @@
 {
   "Механика": {
     "Кинематика": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "src/mechanics/kinematics/tasks.json",
       "Теория": "src/mechanics/kinematics/kinematics.pdf"
     },
     "Динамика": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": "src/mechanics/dynamics/dynamics.pdf"
     },
     "Статика": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": "src/mechanics/statics/statics.pdf"
     },
     "Закон сохранения в механике": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": "src/mechanics/conservation-law-in-mechanics/conservation-law-in-mechanics.pdf"
     },
     "Механические колебания и волны": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": "src/mechanics/mechanical-vibrations-and-waves/mechanical-vibrations-and-waves.pdf"
     }
   },
   "Электродинамика": {
     "Электрическое поле": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": "src/electrodynamics/electric-field/electric-field.pdf"
     },
     "Законы постоянного тока": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": "src/electrodynamics/laws-of-direct-curent/laws-of-direct-curent.pdf"
     },
     "Магнитное поле": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": ""
     },
     "Электромагнитная индукция": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": ""
     },
     "Электромагнитные колебания и волны": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": ""
     },
     "Оптика": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": ""
     },
     "Основы специальной теории относительности": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": ""
     }
   },
   "Квантовая физика": {
     "Корпускулярно-волновой дуализм": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": ""
     },
     "Физика атома": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": ""
     },
     "Физика атомного ядра": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": ""
     }
   },
   "Молекулярная физика и Термодинамика": {
     "Молекулярная физика": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": ""
     },
     "Термодинамика": {
-      "Задачи": [
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        },
-        {
-          "condition": "",
-          "answer": ""
-        }
-      ],
+      "Задачи": "",
       "Теория": ""
     }
   }
