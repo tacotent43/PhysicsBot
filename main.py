@@ -45,7 +45,7 @@ class UserStorage:
       self._users[user_id] = UserData()
 
 
-class ThemeBot:
+class PhysicsBot:
   def __init__(self):
     # Load configuration files
     self.config = self._read_from_json("config")
@@ -110,16 +110,28 @@ class ThemeBot:
     user = self.users.get_user(message.chat.id)
     current = self._get_by_path(user.paths)
     
-    # Handle theory selection - send theory file
+    # Обработка выбора теории - отправка файла
     if user.paths and user.paths[-1] == "Теория":
       filepath = self._get_by_path(user.paths)
       await message.answer(
         f"Отлично! Держи файл с теорией на тему '{user.paths[-2]}'.",
         reply_markup=self._create_keyboard([])
       )
-      print("DEBUG:", message.chat.id, "requested file", filepath)
-      with open(filepath, "rb") as theory_file:
-        await self.bot.send_document(message.chat.id, theory_file)
+      print("LOG:", message.chat.id, "requested file", filepath)
+      try:
+        with open(filepath, 'rb') as file:
+          await self.bot.send_document(
+            chat_id=message.chat.id,
+            document=types.BufferedInputFile(
+              file.read(),
+              filename=filepath.split('/')[-1]
+            )
+          )
+      except FileNotFoundError:
+        await message.answer("Файл не найден. Пожалуйста, сообщите администратору.")
+      except Exception as err:
+        await message.answer("Произошла ошибка при отправке файла.")
+        print(f"Ошибка отправки файла: {err}")
       return
     
     # Handle tasks selection - show tasks count
@@ -147,7 +159,7 @@ class ThemeBot:
     await message.answer(
       f"Привет, {message.from_user.first_name}!\n{self.scripts['start_hello_command']}"
     )
-    print("DEBUG:", message.chat.id, "sent /start command")
+    print("LOG:", message.chat.id, "sent /start command")
     await self._main_menu(message)
 
   # Show main menu options
@@ -182,6 +194,6 @@ class ThemeBot:
 # TODO: реализовать отправку правильных решений
 
 if __name__ == "__main__":
-  bot = ThemeBot()
+  bot = PhysicsBot()
   import asyncio
   asyncio.run(bot.run())
