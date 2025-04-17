@@ -8,8 +8,4 @@ __pycache__/
 
 .DS_Store
 
-tmp.tex
-tmp.py
-tmp.ipynb
-
 config.json
