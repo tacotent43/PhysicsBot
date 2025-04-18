@@ -73,7 +73,16 @@ class PhysicsBot:
       with open(path + "tasks.json", "r", encoding="utf-8") as fp:
         return json.load(fp)
     except FileNotFoundError:
-      print("")
+      print("tasks file not found")
+      
+  # Pluralize "task" based on count
+  @staticmethod
+  def _pluralize_tasks(n: int) -> str:
+    if n % 10 == 1 and n % 100 != 11:
+      return "задача"
+    elif 2 <= n % 10 <= 4 and (n % 100 < 10 or n % 100 >= 20):
+      return "задачи"
+    return "задач"
       
   # Register all message handlers
   def _register_handlers(self) -> None:
@@ -83,6 +92,9 @@ class PhysicsBot:
     self.dp.message.register(self._main_menu, Command("choose"))
     # Theme selection handler
     self.dp.message.register(self._theme_handler, 
+      lambda message: message.text in self._get_by_path(
+        self.users.get_user(message.chat.id).paths))
+    self.dp.message.register(self._menu_selector,
       lambda message: message.text in self._get_by_path(
         self.users.get_user(message.chat.id).paths))
     # Back button handler
@@ -95,15 +107,6 @@ class PhysicsBot:
     for step in path:
       current = current[step]
     return current
-
-  # Pluralize "task" based on count
-  @staticmethod
-  def _pluralize_tasks(n: int) -> str:
-    if n % 10 == 1 and n % 100 != 11:
-      return "задача"
-    elif 2 <= n % 10 <= 4 and (n % 100 < 10 or n % 100 >= 20):
-      return "задачи"
-    return "задач"
 
   # Create reply keyboard with dynamic buttons
   def _create_keyboard(self, items: List[str]) -> ReplyKeyboardMarkup:
@@ -185,6 +188,12 @@ class PhysicsBot:
     user = self.users.get_user(message.chat.id)
     user.paths.append(message.text)
     user.answers.append(f"Выбери интересующий тебя подраздел в теме '{message.text}':")
+    await self._UpdateState(message)
+    
+  async def _menu_selector(self, message: types.Message) -> None:
+    user = self.users.get_user(message.chat.id)
+    user.paths.append(message.text)
+    user.answers.append(f"Что будем делать в теме {message.text} - решать задачи или читать теорию?")
     await self._UpdateState(message)
 
   # Handle back button - navigate up
