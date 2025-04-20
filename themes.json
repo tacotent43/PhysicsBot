@@ -32,47 +32,47 @@
     },
     "Магнитное поле": {
       "Задачи": "",
-      "Теория": "src/electrodynamics/magnetic-field/magnetic-field.pdf"
+      "Теория": ""
     },
     "Электромагнитная индукция": {
       "Задачи": "",
-      "Теория": "src/electrodynamics/electromagnetic-induction/electromagnetic-induction.pdf"
+      "Теория": ""
     },
     "Электромагнитные колебания и волны": {
       "Задачи": "",
-      "Теория": "src/electrodynamics/electromagnetic-oscillations-and-waves/electromagnetic-oscillations-and-waves.pdf"
+      "Теория": ""
     },
     "Оптика": {
       "Задачи": "",
-      "Теория": "src/electrodynamics/optics/optics.pdf"
+      "Теория": ""
+    },
+    "Основы специальной теории относительности": {
+      "Задачи": "",
+      "Теория": ""
     }
-  },
-  "Основы специальной теории относительности": {
-    "Задачи": "",
-    "Теория": "src/fundamentals-of-the-special-theory-of-relativity/fundamentals-of-the-special-theory-of-relativity.pdf"
   },
   "Квантовая физика": {
     "Корпускулярно-волновой дуализм": {
       "Задачи": "",
-      "Теория": "src/quantum-physics/wave-particle-duality/wave-particle-duality.pdf"
+      "Теория": ""
     },
     "Физика атома": {
       "Задачи": "",
-      "Теория": "src/quantum-physics/atomic-physics/atomic-physics.pdf"
+      "Теория": ""
     },
     "Физика атомного ядра": {
       "Задачи": "",
-      "Теория": "src/quantum-physics/physics-of-the-atomic-nucleus/physics-of-the-atomic-nucleus.pdf"
+      "Теория": ""
     }
   },
   "Молекулярная физика и Термодинамика": {
     "Молекулярная физика": {
       "Задачи": "",
-      "Теория": "src/thermodynamics/molecular-physics/molecular-physics.pdf"
+      "Теория": ""
     },
     "Термодинамика": {
       "Задачи": "",
-      "Теория": "src/thermodynamics/thermodynamics/thermodynamics.pdf"
+      "Теория": ""
     }
   }
 }

@@ -9,7 +9,6 @@
 # For licensing inquiries, please contact the owner.
 
 import json
-import random
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional
 from aiogram import Bot, Dispatcher, types
@@ -46,7 +45,7 @@ class UserStorage:
       self._users[user_id] = UserData()
 
 
-class PhysicsBot:
+class ThemeBot:
   def __init__(self):
     # Load configuration files
     self.config = self._read_from_json("config")
@@ -54,7 +53,7 @@ class PhysicsBot:
     self.scripts = self._read_from_json("scripts")
     
     # Initialize bot and dispatcher
-    self.bot = Bot(token=self.config["API_KEY"])
+    self.bot = Bot(token=self.config["token"])
     self.dp = Dispatcher()
     self.users = UserStorage()
     
@@ -67,23 +66,6 @@ class PhysicsBot:
     with open(f"{filename}.json", "r", encoding="utf-8") as fp:
       return json.load(fp)
 
-  @staticmethod
-  def _get_tasks_from_json(path:str) -> dict:
-    try:
-      with open(path + "tasks.json", "r", encoding="utf-8") as fp:
-        return json.load(fp)
-    except FileNotFoundError:
-      print("tasks file not found")
-      
-  # Pluralize "task" based on count
-  @staticmethod
-  def _pluralize_tasks(n: int) -> str:
-    if n % 10 == 1 and n % 100 != 11:
-      return "задача"
-    elif 2 <= n % 10 <= 4 and (n % 100 < 10 or n % 100 >= 20):
-      return "задачи"
-    return "задач"
-      
   # Register all message handlers
   def _register_handlers(self) -> None:
     # /start command handler
@@ -92,9 +74,6 @@ class PhysicsBot:
     self.dp.message.register(self._main_menu, Command("choose"))
     # Theme selection handler
     self.dp.message.register(self._theme_handler, 
-      lambda message: message.text in self._get_by_path(
-        self.users.get_user(message.chat.id).paths))
-    self.dp.message.register(self._menu_selector,
       lambda message: message.text in self._get_by_path(
         self.users.get_user(message.chat.id).paths))
     # Back button handler
@@ -108,6 +87,15 @@ class PhysicsBot:
       current = current[step]
     return current
 
+  # Pluralize "task" based on count
+  @staticmethod
+  def _pluralize_tasks(n: int) -> str:
+    if n % 10 == 1 and n % 100 != 11:
+      return "задача"
+    elif 2 <= n % 10 <= 4 and (n % 100 < 10 or n % 100 >= 20):
+      return "задачи"
+    return "задач"
+
   # Create reply keyboard with dynamic buttons
   def _create_keyboard(self, items: List[str]) -> ReplyKeyboardMarkup:
     builder = ReplyKeyboardBuilder()
@@ -117,42 +105,27 @@ class PhysicsBot:
     builder.adjust(2)
     return builder.as_markup(resize_keyboard=True)
 
-  async def _get_task_by_id(self, message):
-    pass
-
   # Update bot state based on current navigation
-  async def _UpdateState(self, message: types.Message) -> None:
+  async def _update_state(self, message: types.Message) -> None:
     user = self.users.get_user(message.chat.id)
     current = self._get_by_path(user.paths)
     
-    # Обработка выбора теории - отправка файла
+    # Handle theory selection - send theory file
     if user.paths and user.paths[-1] == "Теория":
       filepath = self._get_by_path(user.paths)
       await message.answer(
         f"Отлично! Держи файл с теорией на тему '{user.paths[-2]}'.",
         reply_markup=self._create_keyboard([])
       )
-      print("LOG:", message.chat.id, "requested file", filepath)
-      try:
-        with open(filepath, 'rb') as file:
-          await self.bot.send_document(
-            chat_id=message.chat.id,
-            document=types.BufferedInputFile(
-              file.read(),
-              filename=filepath.split('/')[-1]
-            )
-          )
-      except FileNotFoundError:
-        await message.answer("Файл не найден. Пожалуйста, сообщите администратору.")
-      except Exception as err:
-        await message.answer("Произошла ошибка при отправке файла.")
-        print(f"Ошибка отправки файла: {err}")
+      print("DEBUG:", message.chat.id, "requested file", filepath)
+      with open(filepath, "rb") as theory_file:
+        await self.bot.send_document(message.chat.id, theory_file)
       return
     
     # Handle tasks selection - show tasks count
     if user.paths and user.paths[-1] == "Задачи":
       await message.answer(
-        f"В базе {len(current)} {self._pluralize_tasks(len(current))} по теме {user.paths[-2]}.\nКакую задачу выберите?",
+        f"В базе {len(current)} {self._pluralize_tasks(len(current))} по теме {user.paths[-2]}",
         reply_markup=self._create_keyboard([])
       )
       return
@@ -174,27 +147,21 @@ class PhysicsBot:
     await message.answer(
       f"Привет, {message.from_user.first_name}!\n{self.scripts['start_hello_command']}"
     )
-    print("LOG:", message.chat.id, "sent /start command")
+    print("DEBUG:", message.chat.id, "sent /start command")
     await self._main_menu(message)
 
   # Show main menu options
   async def _main_menu(self, message: types.Message) -> None:
     user = self.users.get_user(message.chat.id)
     user.answers.append("Выбери интересующий тебя раздел:")
-    await self._UpdateState(message)
+    await self._update_state(message)
 
   # Handle theme selection - navigate deeper
   async def _theme_handler(self, message: types.Message) -> None:
     user = self.users.get_user(message.chat.id)
     user.paths.append(message.text)
     user.answers.append(f"Выбери интересующий тебя подраздел в теме '{message.text}':")
-    await self._UpdateState(message)
-    
-  async def _menu_selector(self, message: types.Message) -> None:
-    user = self.users.get_user(message.chat.id)
-    user.paths.append(message.text)
-    user.answers.append(f"Что будем делать в теме {message.text} - решать задачи или читать теорию?")
-    await self._UpdateState(message)
+    await self._update_state(message)
 
   # Handle back button - navigate up
   async def _back_handler(self, message: types.Message) -> None:
@@ -203,17 +170,18 @@ class PhysicsBot:
       user.paths.pop()
     if len(user.answers) > 1:
       user.answers.pop()
-    await self._UpdateState(message)
+    await self._update_state(message)
 
   # Start the bot
   async def run(self) -> None:
     await self.dp.start_polling(self.bot)
 
+# TODO: починить отправку документов
 # TODO: реализовать отправку задач
 # TODO: реализовать анализ ответов, отправку фидбека
 # TODO: реализовать отправку правильных решений
 
 if __name__ == "__main__":
-  bot = PhysicsBot()
+  bot = ThemeBot()
   import asyncio
   asyncio.run(bot.run())
