@@ -49,9 +49,9 @@ class UserStorage:
 class PhysicsBot:
   def __init__(self):
     # Load configuration files
-    self.config = self._read_from_json("config")
-    self.all_themes = self._read_from_json("themes")
-    self.scripts = self._read_from_json("scripts")
+    self.config = self._read_from_json("./state/config")
+    self.all_themes = self._read_from_json("./state/themes")
+    self.scripts = self._read_from_json("./state/scripts")
     
     # Initialize bot and dispatcher
     self.bot = Bot(token=self.config["API_KEY"])

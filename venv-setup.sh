@@ -7,6 +7,11 @@ fi
 
 python3 -m venv .venv
 
+if [ ! -f "./data/config.json" ]; then 
+  echo -e '{\n\t"API_KEY": "insert api key here"\n}' > config.json
+  echo "Insert your API key in data/config.json"
+fi
+
 source .venv/bin/activate
 
 if [ -f "requirements.txt" ]; then
