@@ -1,78 +1,79 @@
 {
   "Механика": {
     "Кинематика": {
-      "Задачи": "src/mechanics/kinematics/tasks.json",
-      "Теория": "src/mechanics/kinematics/kinematics.pdf"
+      "Задачи": "assets/mechanics/kinematics/tasks.json",
+      "Теория": "assets/mechanics/kinematics/kinematics.pdf"
     },
     "Динамика": {
       "Задачи": "",
-      "Теория": "src/mechanics/dynamics/dynamics.pdf"
+      "Теория": "assets/mechanics/dynamics/dynamics.pdf"
     },
     "Статика": {
       "Задачи": "",
-      "Теория": "src/mechanics/statics/statics.pdf"
+      "Теория": "assets/mechanics/statics/statics.pdf"
     },
     "Закон сохранения в механике": {
       "Задачи": "",
-      "Теория": "src/mechanics/conservation-law-in-mechanics/conservation-law-in-mechanics.pdf"
+      "Теория": "assets/mechanics/conservation-law-in-mechanics/conservation-law-in-mechanics.pdf"
     },
     "Механические колебания и волны": {
       "Задачи": "",
-      "Теория": "src/mechanics/mechanical-vibrations-and-waves/mechanical-vibrations-and-waves.pdf"
+      "Теория": "assets/mechanics/mechanical-vibrations-and-waves/mechanical-vibrations-and-waves.pdf"
     }
   },
   "Электродинамика": {
     "Электрическое поле": {
       "Задачи": "",
-      "Теория": "src/electrodynamics/electric-field/electric-field.pdf"
+      "Теория": "assets/electrodynamics/electric-field/electric-field.pdf"
     },
     "Законы постоянного тока": {
       "Задачи": "",
-      "Теория": "src/electrodynamics/laws-of-direct-curent/laws-of-direct-curent.pdf"
+      "Теория": "assets/electrodynamics/laws-of-direct-curent/laws-of-direct-curent.pdf"
     },
     "Магнитное поле": {
       "Задачи": "",
-      "Теория": "src/electrodynamics/magnetic-field/magnetic-field.pdf"
+      "Теория": "assets/electrodynamics/magnetic-field/magnetic-field.pdf"
     },
     "Электромагнитная индукция": {
       "Задачи": "",
-      "Теория": "src/electrodynamics/electromagnetic-induction/electromagnetic-induction.pdf"
+      "Теория": "assets/electrodynamics/electromagnetic-induction/electromagnetic-induction.pdf"
     },
     "Электромагнитные колебания и волны": {
       "Задачи": "",
-      "Теория": "src/electrodynamics/electromagnetic-oscillations-and-waves/electromagnetic-oscillations-and-waves.pdf"
+      "Теория": "assets/electrodynamics/electromagnetic-oscillations-and-waves/electromagnetic-oscillations-and-waves.pdf"
     },
     "Оптика": {
       "Задачи": "",
-      "Теория": "src/electrodynamics/optics/optics.pdf"
+      "Теория": "assets/electrodynamics/optics/optics.pdf"
     }
   },
   "Основы специальной теории относительности": {
     "Задачи": "",
-    "Теория": "src/fundamentals-of-the-special-theory-of-relativity/fundamentals-of-the-special-theory-of-relativity.pdf"
+    "Теория": "assets/fundamentals-of-the-special-theory-of-relativity/fundamentals-of-the-special-theory-of-relativity.pdf"
   },
   "Квантовая физика": {
     "Корпускулярно-волновой дуализм": {
       "Задачи": "",
-      "Теория": "src/quantum-physics/wave-particle-duality/wave-particle-duality.pdf"
+      "Теория": "assets/quantum-physics/wave-particle-duality/wave-particle-duality.pdf"
     },
     "Физика атома": {
       "Задачи": "",
-      "Теория": "src/quantum-physics/atomic-physics/atomic-physics.pdf"
+      "Теория": "assets/quantum-physics/atomic-physics/atomic-physics.pdf"
     },
     "Физика атомного ядра": {
       "Задачи": "",
-      "Теория": "src/quantum-physics/physics-of-the-atomic-nucleus/physics-of-the-atomic-nucleus.pdf"
+      "Теория": "assets/quantum-physics/physics-of-the-atomic-nucleus/physics-of-the-atomic-nucleus.pdf"
     }
   },
   "Молекулярная физика и Термодинамика": {
     "Молекулярная физика": {
       "Задачи": "",
-      "Теория": "src/thermodynamics/molecular-physics/molecular-physics.pdf"
+      "Теория": "assets/thermodynamics/molecular-physics/molecular-physics.pdf"
     },
     "Термодинамика": {
       "Задачи": "",
-      "Теория": "src/thermodynamics/thermodynamics/thermodynamics.pdf"
+      "Теория": "assets/thermodynamics/thermodynamics/thermodynamics.pdf"
     }
-  }
+  },
+  "Константы и табличные значения": "assets/constants/contsants.pdf"
 }
