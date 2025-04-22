@@ -8,7 +8,7 @@ fi
 python3 -m venv .venv
 
 if [ ! -f "./data/config.json" ]; then 
-  echo -e '{\n\t"API_KEY": "insert api key here"\n}' > config.json
+  echo -e '{\n\t"API_KEY": "insert api key here"\n}' > ./data/config.json
   echo "Insert your API key in data/config.json"
 fi
 
