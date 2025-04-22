@@ -1,6 +1,7 @@
 import json
 from aiogram import *
 from asyncio import *
+from aiogram.types import Message
 
 
 def read_from_json(filename: str) -> dict:
@@ -24,20 +25,21 @@ def pluralize_tasks(n: int) -> str:
   return "задач"
 
 
-#TODO: move send_file function here (check await and message type)
-# def send_file(filepath:str, app, chat_id:) -> None:
-#   try:
-#     with open(filepath, 'rb') as file:
-#       await app.bot.send_document(
-#         chat_id=message.chat.id,
-#         document=types.BufferedInputFile(
-#           file.read(),
-#           filename=filepath.split('/')[-1]
-#         )
-#       )
-#   except FileNotFoundError:
-#     await message.answer("Файл не найден. Пожалуйста, сообщите администратору.")
-#   except Exception as err:
-#     await message.answer("Произошла ошибка при отправке файла.")
-#     print(f"Ошибка отправки файла: {err}")
-#   return
+async def send_file(app, filepath, message:Message) -> None:
+  try:
+    with open(filepath, 'rb') as file:
+      await app.bot.send_document(
+        chat_id=message.chat.id,
+        document=types.BufferedInputFile(
+          file.read(),
+          filename=filepath.split('/')[-1]
+        )
+      )
+      
+  except FileNotFoundError:
+    await message.answer("Файл не найден. Пожалуйста, сообщите администратору.")
+    print(f"WARNING: {message.chat.id} ({message.from_user.username}) requested file, but it was not found in {filepath}")
+    
+  except Exception as err:
+    await message.answer("Произошла ошибка при отправке файла.")
+    print(f"ERROR: {message.chat.id} ({message.from_user.username}) caught error: {err}")
