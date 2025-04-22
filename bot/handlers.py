@@ -116,17 +116,28 @@ async def update_state(message: Message, app) -> None:
       f"Отлично! Держи файл с теорией на тему '{user.paths[-2]}'.",
       reply_markup=create_keyboard([], "Назад")
     )
-    print(f"DEBUG: {type(message.chat.id)}")
+    print(f"LOG: {message.chat.id} ({message.from_user.username}) requested file: {filepath}")
     await send_file(app, filepath, message)
     return
 
   #! tasks
   if user.paths and user.paths[-1] == "Задачи":
+    filepath = get_by_path(app, user.paths)
     count = len(current)
-    await message.answer(
-      f"В базе {count} {pluralize_tasks(count)} по теме {user.paths[-2]}.\nКакую задачу выберите?",
-      reply_markup=create_keyboard([], "Назад")
-    )
+    if len(current) == 0:
+      await message.answer(
+        f"К сожалению, в базе нет задач по теме {user.paths[-2]}.\n"
+        f"Пожалуйста, выбери другую тему или вернись в меню.",
+        reply_markup=create_keyboard([], "Назад")
+      )
+      return
+    else:
+      await message.answer(
+        f"В базе 1 задача по теме {user.paths[-2]}.\n"
+        f"Какую задачу выберите? (введите номер задачи, 1 - {count})",
+        reply_markup=create_keyboard([], "Назад")
+      )
+
     return
   #! tasks
   
