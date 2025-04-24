@@ -1,77 +1,77 @@
 {
   "Механика": {
     "Кинематика": {
-      "Задачи": "assets/mechanics/kinematics/tasks.json",
+      "Задачи": "assets/mechanics/kinematics/tasks",
       "Теория": "assets/mechanics/kinematics/kinematics.pdf"
     },
     "Динамика": {
-      "Задачи": "",
+      "Задачи": "assets/mechanics/dynamics/tasks",
       "Теория": "assets/mechanics/dynamics/dynamics.pdf"
     },
     "Статика": {
-      "Задачи": "",
+      "Задачи": "assets/mechanics/statics/tasks",
       "Теория": "assets/mechanics/statics/statics.pdf"
     },
     "Закон сохранения в механике": {
-      "Задачи": "",
+      "Задачи": "assets/mechanics/conservation-law-in-mechanics/tasks",
       "Теория": "assets/mechanics/conservation-law-in-mechanics/conservation-law-in-mechanics.pdf"
     },
     "Механические колебания и волны": {
-      "Задачи": "",
+      "Задачи": "assets/mechanics/mechanical-vibrations-and-waves/tasks",
       "Теория": "assets/mechanics/mechanical-vibrations-and-waves/mechanical-vibrations-and-waves.pdf"
     }
   },
   "Электродинамика": {
     "Электрическое поле": {
-      "Задачи": "",
+      "Задачи": "assets/electrodynamics/electric-field/tasks",
       "Теория": "assets/electrodynamics/electric-field/electric-field.pdf"
     },
     "Законы постоянного тока": {
-      "Задачи": "",
+      "Задачи": "assets/electrodynamics/laws-of-direct-curent/tasks",
       "Теория": "assets/electrodynamics/laws-of-direct-curent/laws-of-direct-curent.pdf"
     },
     "Магнитное поле": {
-      "Задачи": "",
+      "Задачи": "assets/electrodynamics/magnetic-field/tasks",
       "Теория": "assets/electrodynamics/magnetic-field/magnetic-field.pdf"
     },
     "Электромагнитная индукция": {
-      "Задачи": "",
+      "Задачи": "assets/electrodynamics/electromagnetic-induction/tasks",
       "Теория": "assets/electrodynamics/electromagnetic-induction/electromagnetic-induction.pdf"
     },
     "Электромагнитные колебания и волны": {
-      "Задачи": "",
+      "Задачи": "assets/electrodynamics/electromagnetic-oscillations-and-waves/tasks",
       "Теория": "assets/electrodynamics/electromagnetic-oscillations-and-waves/electromagnetic-oscillations-and-waves.pdf"
     },
     "Оптика": {
-      "Задачи": "",
+      "Задачи": "assets/electrodynamics/optics/tasks",
       "Теория": "assets/electrodynamics/optics/optics.pdf"
     }
   },
   "Основы специальной теории относительности": {
-    "Задачи": "",
+    "Задачи": "assets/fundamentals-of-the-special-theory-of-relativity/tasks",
     "Теория": "assets/fundamentals-of-the-special-theory-of-relativity/fundamentals-of-the-special-theory-of-relativity.pdf"
   },
   "Квантовая физика": {
     "Корпускулярно-волновой дуализм": {
-      "Задачи": "",
+      "Задачи": "assets/quantum-physics/wave-particle-duality/tasks",
       "Теория": "assets/quantum-physics/wave-particle-duality/wave-particle-duality.pdf"
     },
     "Физика атома": {
-      "Задачи": "",
+      "Задачи": "assets/quantum-physics/atomic-physics/tasks",
       "Теория": "assets/quantum-physics/atomic-physics/atomic-physics.pdf"
     },
     "Физика атомного ядра": {
-      "Задачи": "",
+      "Задачи": "assets/quantum-physics/physics-of-the-atomic-nucleus/tasks",
       "Теория": "assets/quantum-physics/physics-of-the-atomic-nucleus/physics-of-the-atomic-nucleus.pdf"
     }
   },
   "Молекулярная физика и Термодинамика": {
     "Молекулярная физика": {
-      "Задачи": "",
+      "Задачи": "assets/thermodynamics/molecular-physics/tasks",
       "Теория": "assets/thermodynamics/molecular-physics/molecular-physics.pdf"
     },
     "Термодинамика": {
-      "Задачи": "",
+      "Задачи": "assets/thermodynamics/thermodynamics/tasks",
       "Теория": "assets/thermodynamics/thermodynamics/thermodynamics.pdf"
     }
   },
