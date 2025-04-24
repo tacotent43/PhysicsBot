@@ -1,0 +1,295 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fancyhdr}
+\usepackage{graphicx} 
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{circuitikz} 
+\usepackage{physics}
+
+\usepackage{enumitem}
+
+\geometry{top=2cm, bottom=2cm, left=1cm, right=1cm}
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot[C]{\rule[20pt]{\textwidth}{0.4pt}}
+\fancyhead{} 
+\fancyfoot[L]{Page \thepage} 
+\fancyfoot[R]{\copyright\ Бот для подготовки к ЕГЭ по физике. 2025г} 
+
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{3em}{}
+\setlist[itemize]{label=\scriptsize\textbullet}
+
+\begin{document}
+
+\begin{center}
+\scalebox{2}{\textbf{Механические колебания и волны}}
+\end{center}
+
+\vspace{-2.5em}
+
+% 1.5.1
+\section*{1.5.1 Гармонические колебания}
+
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\textbf{Гармонические колебания} - колебания, при которых физическая величина (например, смещение, скорость) изменяется со временем по закону синуса или косинуса. Это простейший вид периодических колебаний.
+
+\vspace{-9pt}
+\subsection*{Описание:}
+\vspace{-3pt}
+График гармонических колебаний представляет собой синусоиду.
+
+\vspace{-9pt}
+\subsection*{Уравнение гармонических колебаний (смещение):}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $x(t) = A \cdot \cos(\omega t + \phi)$ или $x(t) = A \cdot \sin(\omega t + \phi)$, где
+    \begin{itemize}
+        \item $x(t)$ - смещение тела от положения равновесия в момент времени t
+        \item $A$ - амплитуда колебаний
+        \item $\omega$ - циклическая частота
+        \item $t$ - время
+        \item $\phi$ - начальная фаза
+    \end{itemize}
+\end{itemize}
+
+% 1.5.2
+\section*{1.5.2 Амплитуда и фаза колебаний}
+
+\vspace{-9pt}
+\subsection*{Амплитуда (A):}
+\vspace{-3pt}
+Максимальное отклонение колеблющегося тела от положения равновесия.
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item Характеризует "размах" колебаний
+    \item Измеряется в единицах смещения (например, метрах)
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Фаза колебаний ($\omega t + \phi$):}
+\vspace{-3pt}
+Определяет состояние колебательной системы в конкретный момент времени.
+
+\vspace{-9pt}
+\subsection*{Начальная фаза ($\phi$):}
+\vspace{-3pt}
+Значение фазы в начальный момент времени (t=0).
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item Определяет положение тела в момент начала отсчета времени
+    \item Измеряется в радианах
+\end{itemize}
+
+% 1.5.3
+\newpage
+\section*{1.5.3 Период колебаний}
+
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\textbf{Период колебаний (T)} - время, за которое совершается одно полное колебание.
+
+\vspace{-9pt}
+\subsection*{Формулы:}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $T = \frac{1}{\nu}$
+    \item $T = \frac{2\pi}{\omega}$
+\end{itemize}
+где:
+\begin{itemize}
+    \item $\nu$ - частота колебаний
+    \item $\omega$ - циклическая частота
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Единица измерения:}
+\vspace{-3pt}
+секунда (с).
+
+% 1.5.4
+\section*{1.5.4 Частота колебаний}
+
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\textbf{Частота колебаний ($\nu$)} - количество полных колебаний, совершаемых в единицу времени.
+
+\vspace{-9pt}
+\subsection*{Формулы:}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $\nu = \frac{1}{T}$
+    \item $\nu = \frac{\omega}{2\pi}$
+\end{itemize}
+где:
+\begin{itemize}
+    \item $T$ - период колебаний
+    \item $\omega$ - циклическая частота
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Циклическая частота:}
+\vspace{-3pt}
+$\omega = 2\pi\nu$
+
+\vspace{-9pt}
+\subsection*{Единица измерения:}
+\vspace{-3pt}
+герц (Гц). 1 Гц = 1 колебание в секунду.
+
+% 1.5.5
+\newpage
+\section*{1.5.5 Свободные колебания (математический и пружинный маятники)}
+
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\textbf{Свободные колебания} - колебания, происходящие под действием внутренних сил системы после однократного вывода системы из состояния равновесия.
+
+\vspace{-9pt}
+\subsection*{Математический маятник:}
+\vspace{-3pt}
+Идеализированная система, состоящая из материальной точки, подвешенной на невесомой нерастяжимой нити, совершающей колебания под действием силы тяжести.
+
+\vspace{-9pt}
+\subsection*{Формула периода:}
+\vspace{-3pt}
+$T = 2\pi \cdot \sqrt{\frac{l}{g}}$, где:
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $l$ - длина нити
+    \item $g$ - ускорение свободного падения
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Примечание:}
+\vspace{-3pt}
+Эта формула справедлива только для малых углов отклонения.
+
+\vspace{-9pt}
+\subsection*{Пружинный маятник:}
+\vspace{-3pt}
+Система, состоящая из тела, прикрепленного к пружине, которая совершает колебания под действием силы упругости.
+
+\vspace{-9pt}
+\subsection*{Формула периода:}
+\vspace{-3pt}
+$T = 2\pi \cdot \sqrt{\frac{m}{k}}$, где:
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $m$ - масса тела
+    \item $k$ - жесткость пружины
+\end{itemize}
+
+% 1.5.6
+\section*{1.5.6 Вынужденные колебания}
+
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\textbf{Вынужденные колебания} - колебания, которые происходят под действием внешней периодической силы.
+
+\vspace{-9pt}
+\subsection*{Пример:}
+\vspace{-3pt}
+Колебания качелей, которые кто-то постоянно подталкивает.
+
+\vspace{-9pt}
+\subsection*{Отличие от свободных:}
+\vspace{-3pt}
+Внешняя сила компенсирует потери энергии на трение. Частота вынужденных колебаний равна частоте внешней силы.
+
+% 1.5.7
+\newpage
+\section*{1.5.7 Резонанс}
+
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\textbf{Резонанс} - явление резкого возрастания амплитуды вынужденных колебаний, когда частота внешней силы близка к собственной частоте колебательной системы.
+
+\vspace{-9pt}
+\subsection*{Условие резонанса:}
+\vspace{-3pt}
+Частота внешней силы ($\nu_{\text{внеш}}$) $\approx$ собственной частоте ($\nu_{\text{соб}}$).
+
+\vspace{-9pt}
+\subsection*{Примеры:}
+\vspace{-3pt}
+Раскачивание качелей, разрушение мостов под действием ветра, работа радиоприемников.
+
+\vspace{-9pt}
+\subsection*{Опасность:}
+\vspace{-3pt}
+Резонанс может привести к разрушению системы, если амплитуда колебаний становится слишком большой.
+
+% 1.5.8
+\section*{1.5.8 Длина волны}
+
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\textbf{Волна} - распространение колебаний в пространстве.
+
+\vspace{-9pt}
+\subsection*{Длина волны ($\lambda$):}
+\vspace{-3pt}
+Расстояние между двумя ближайшими точками волны, колеблющимися в одинаковой фазе (например, между двумя соседними гребнями или впадинами).
+
+\vspace{-9pt}
+\subsection*{Формулы:}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item $\lambda = v \cdot T$
+    \item $\lambda = \frac{v}{\nu}$
+\end{itemize}
+где:
+\begin{itemize}
+    \item $v$ - скорость распространения волны
+    \item $T$ - период колебаний
+    \item $\nu$ - частота колебаний
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Единица измерения:}
+\vspace{-3pt}
+метр (м).
+
+% 1.5.9
+\newpage
+\section*{1.5.9 Звук}
+
+\vspace{-9pt}
+\subsection*{Определение:}
+\vspace{-3pt}
+\textbf{Звук} - механические колебания, распространяющиеся в упругой среде (газе, жидкости, твердом теле) и воспринимаемые органами слуха.
+
+\vspace{-9pt}
+\subsection*{Характеристики звука:}
+\vspace{-3pt}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item \textbf{Частота:} Определяет высоту звука (высокие частоты - высокий звук, низкие частоты - низкий звук)
+    \item \textbf{Амплитуда:} Определяет громкость звука (большая амплитуда - громкий звук, малая амплитуда - тихий звук)
+    \item \textbf{Скорость:} Зависит от среды, в которой распространяется звук. В воздухе при нормальных условиях $\approx$ 340 м/с
+\end{itemize}
+
+\vspace{-9pt}
+\subsection*{Звуковые волны:}
+\vspace{-3pt}
+Продольные волны (колебания частиц среды происходят вдоль направления распространения волны).
+
+\end{document}
