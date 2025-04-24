@@ -7,6 +7,7 @@ class PhysicsBot:
   def __init__(self):
     self.config = read_from_json("./data/config")
     self.all_themes = read_from_json("./data/themes")
+    self.scripts = read_from_json("./data/scripts")
 
     self.bot = Bot(token=self.config["API_KEY"])
     self.dp = Dispatcher()

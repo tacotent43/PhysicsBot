@@ -5,3 +5,4 @@ from typing import List
 class UserData:
   paths: List[str] = field(default_factory=list)
   answers: List[str] = field(default_factory=list)
+  current_task: str = ""

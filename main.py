@@ -4,5 +4,3 @@ import asyncio
 if __name__ == "__main__":
   bot = PhysicsBot()
   asyncio.run(bot.run())
-
-#TODO: починить кнопку назад

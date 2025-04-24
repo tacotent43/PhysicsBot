@@ -1,0 +1,32 @@
+ 
+
+  #! tasks
+  if user.paths and user.paths[-1] == "Задачи":
+    tasks = read_from_json(current)
+    # print(tasks)
+    if len(tasks) == 0:
+      await message.answer(
+        f"К сожалению, в базе нет задач по теме {user.paths[-2]}.\n"
+        f"Пожалуйста, выбери другую тему или вернись в меню.",
+        reply_markup=create_keyboard([], "Назад")
+      )
+      return
+    else:
+      await message.answer(
+        f"В базе {len(tasks)} задача по теме {user.paths[-2]}.\n"
+        f"Какую задачу выберите? (введите номер задачи, 1 - {len(tasks)})",
+        reply_markup=create_keyboard([], "Назад")
+      )
+
+    return
+  #! tasks
+  
+  #! constants
+  if user.paths and user.paths[-1] == "Константы и табличные значения":
+    await message.answer(
+      f"Держи файл со всеми константами и табличными значениями.", 
+      reply_markup=create_keyboard([], "Назад")
+    )
+    await send_file(app, current, message)
+    return
+  #! constants
