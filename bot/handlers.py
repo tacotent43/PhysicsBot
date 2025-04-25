@@ -213,7 +213,7 @@ def subtask_handler(app):
       print(f"LOG: in SUBTASK_HANDLER 'Посмотреть решение'; paths: {paths}")
       if user.current_task['ExplanationPicture']:
         user.answers.append(
-          f"Держи решение задачи №{paths[-2]}:"
+          f"Держи решение задачи №{paths[-1]}:"
         )
         await send_photo(app, user.current_task['ExplanationPicture'], message)
         paths.pop()

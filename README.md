@@ -4,7 +4,7 @@
 ![Framework](https://img.shields.io/badge/Framework-aiogram-blueviolet)
 ![Data Storage](https://img.shields.io/badge/Data-JSON-lightgrey)
 
-Бот предназначен для помощи школьникам в подготовке к Единому Государственному Экзамену (ЕГЭ) по физике. Он предоставляет доступ к теоретическим материалам и структуре задач по темам кодификатора ЕГЭ.
+Бот разработан для того, чтобы сделать процесс изучения физики ещё более увлекательным.
 
 ---
 
@@ -24,7 +24,7 @@
 
 *   **Язык программирования:** Python 3.11+
 *   **Фреймворк:** aiogram (для интеграции с Telegram Bot API)
-*   **База данных/Хранение данных:** JSON-файлы (`themes.json`, `scripts.json`, `config.json`, `tasks.json`) для структурирования контента и конфигурации.
+*   **Хранение данных:** JSON-файлы (`themes.json`, `scripts.json`, `config.json`, `tasks.json`) для структурирования контента и конфигурации.
 *   **Теоретические материалы:** Хранятся в формате PDF (источники `.tex` файлы, которые компилируются отдельно).
 
 ### Архитектура
@@ -41,18 +41,21 @@
 ### Структура проекта
 
 ```bash
-├── .gitignore             # Файл для игнорирования ненужных файлов в Git
-├── README.md              # Этот файл
+├── .gitignore
+│
+├── README.md
+│
 ├── venv-setup.sh          # Скрипт для настройки виртуального окружения
+│
 ├── requirements.txt       # Список зависимостей Python
+│
 ├── main.py                # Точка входа в приложение бота
+│
 ├── bot/                   # Директория с кодом бота
 │   ├── __init__.py        # Инициализация пакета bot
 │   ├── bot.py             # Основной класс бота, инициализация aiogram и хранилища
 │   ├── handlers.py        # Обработчики команд и сообщений Telegram
 │   ├── keyboards.py       # Функции для создания клавиатур
-│   ├── states.py          # (Не используется в текущей версии, возможно для FSM)
-│   ├── tasks.py           # (Не используется в текущей версии, заготовка для работы с задачами)
 │   └── utils.py           # Вспомогательные функции (чтение JSON, отправка файлов и др.)
 ├── data/                  # Директория с данными бота
 │   ├── config.json        # Конфигурационный файл (API ключ бота)
@@ -65,12 +68,13 @@
 └── assets/                # Директория с контентом (теория в .tex и .pdf, задачи в .json)
     ├── electrodynamics/
     │   ├── electric-field/
-    │   │   ├── tasks/     # (Предполагаемая директория для файлов задач)
-    │   │   └── electric-field.pdf  # Файл с теорией (сгенерирован из .tex)
+    │   │   ├── assets/    # Директория с картинками объяснений решений задач
+    │   │   ├── tasks.json # Файл с условиями задач и путями до кратких объяснений в виде .png
+    │   │   ├── electric-field.pdf  # Файл с теорией (сгенерирован из .tex)
     │   │   └── electric-field.tex  # Исходник теории
     │   ├── electromagnetic-induction/
     │   │   ├── tasks/
-    │   │   └── electromagnetic-induction.pdf
+    │   │   ├── electromagnetic-induction.pdf
     │   │   └── electromagnetic-induction.tex
     │   ├── ... (другие подразделы электродинамики)
     ├── mechanics/
@@ -80,25 +84,29 @@
     │   │   └── conservation-law-in-mechanics.tex
     │   ├── dynamics/
     │   │   ├── tasks/
-    │   │   └── theory.pdf
+    │   │   ├── theory.pdf
     │   │   └── dynamics.tex
     │   ├── kinematics/
+    │   │   ├── assets/
+    │   │   ├── tasks.json
     │   │   ├── tasks/
-    │   │   └── kinematics.pdf
+    │   │   ├── kinematics.pdf
     │   │   └── kinematics.tex
     │   └── ... (другие подразделы механики)
     ├── quantum-physics/
     │   ├── wave-particle-duality/
+    │   │   ├── assets/
+    │   │   ├── tasks.json
     │   │   ├── tasks/
-    │   │   └── wave-particle-duality.pdf
+    │   │   ├── wave-particle-duality.pdf
     │   │   └── wave-particle-duality.tex
     │   └── ... (другие подразделы квантовой физики)
     ├── thermodynamics/
     │   ├── molecular-physics-and-thermodynamics/
     │   │   ├── tasks/
-    │   │   └── molecular-physics-and-thermodynamics.pdf
+    │   │   ├── molecular-physics-and-thermodynamics.pdf
     │   │   └── molecular-physics-and-thermodynamics.tex
     │   └── ... (другие подразделы термодинамики)
     └── constants/
-        └── contsants.pdf # Файл с константами (сгенерирован из .tex)
+        ├── contsants.pdf # Файл с константами (сгенерирован из .tex)
         └── contsants.tex # Исходник констант
