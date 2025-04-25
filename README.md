@@ -1,4 +1,4 @@
-# Бот для подготовки к ЕГЭ по физике
+# Бот для интерактивного изучения физики
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python)
 ![Framework](https://img.shields.io/badge/Framework-aiogram-blueviolet)
