@@ -7,6 +7,7 @@ from bot.utils import send_file
 from bot.utils import read_from_json
 from bot.utils import generate_task_list
 from bot.utils import send_photo
+from bot.utils import check_task
 
 from bot.keyboards import create_task_keyboard
 from bot.keyboards import create_keyboard
@@ -144,7 +145,7 @@ def theory_handler(app):
       current = get_by_path(app, user.paths)
       tasks = read_from_json(current)
       user.answers.append(
-        f"Отлично! Держи список задач на тему '{user.paths[-2]}'.\n{generate_task_list(tasks)}.\nЧтобы выбрать задачу, просто отправь мне её номер.\n",
+        f"Отлично! Держи список задач на тему <b>'{user.paths[-2]}'</b>.\n\n{generate_task_list(tasks)}.\n\n<b>Чтобы выбрать задачу, просто отправь мне её номер.</b>\n",
       )
       print(f"LOG: in theory/tasks: {app.users.get_user(message.chat.id).paths}")
       await update_state(message, app)
@@ -164,8 +165,8 @@ def task_handler(app):
     if message.text.isdigit() and 1 <= int(message.text) <= len(tasks):
       task_number = int(message.text)
       user.answers.append(
-        f"Вы выбрали задачу номер {task_number}.\n"
-        f"Условие: {tasks["task" + str(task_number)]['Condition']}\n"
+        f"Отлично! Вы выбрали задачу номер <b><i>{task_number}</i></b> - <b>'{tasks["task" + str(task_number)]["Name"]}</b>'.\n"
+        f"<b>Условие: </b>\n{tasks["task" + str(task_number)]['Condition']}\n"
       )
       print(f"LOG: in TASK_HANDLER 'Задача номер'; current: {current_level}; tasks: {tasks["task" + str(task_number)]}")
       user.current_task = tasks["task" + str(task_number)]
@@ -183,8 +184,10 @@ def subtask_handler(app):
     user = app.users.get_user(message.chat.id)
     current_level = get_by_path(app, user.paths)
     paths = app.users.get_user(message.chat.id).paths
-    print(f"DEBUG: {paths}")
+    
+    print(f"DEBUG: subtask_handler {paths}")
     print(f"LOG: in SUBTASK_HANDLER {message.text}; current: {current_level}")
+    
     if message.text == "Решить задачу":
       print(f"LOG: in SUBTASK_HANDLER 'Решить задачу'; current: {current_level}")
       if not(user.current_task['Answer']):
@@ -192,7 +195,18 @@ def subtask_handler(app):
           f"К сожалению, на эту задачу временно нет ответа.\n"
           f"Но ты можешь попробовать решить задачу самостоятельно.\n"
         )
-      paths.append(int(user.current_task['Answer']))
+        print(f"LOG: NO_ANSWER_WARN")
+        await update_state(message, app)
+      
+      paths.append("Решить задачу")
+      await message.answer(f"Хорошо! Я жду от тебя ответ, проверю его, и скажу, правильный ли он.")
+
+      user_answer = str(message.text)
+      
+      if check_task(user_answer, user.current_task['Answer']):
+        await message.answer(f"Отлично, твой ответ правильный!")
+      else:
+        await message.answer(f"К сожалению, твой ответ не правильный. Можешь подумать ещё или посмотреть ответ на задачу.")
       
       # user.answers.append(
       #   f"К сожалению, данная функция временно недоступна.\n"
@@ -201,32 +215,20 @@ def subtask_handler(app):
       
       print(f"LOG: in SUBTASK_HANDLER (end) 'Решить задачу'; paths: {paths}")
       await update_state(message, app)
+      
     elif message.text == "Посмотреть ответ":
       print(f"LOG: in SUBTASK_HANDLER 'Посмотреть ответ'; current: {current_level}")
-      paths.append("Посмотреть ответ")
-      user.answers.append(
-        f"Ответ: {user.current_task['Answer']}"
-      )
-      paths.pop()
-      await update_state(message, app)
+      await message.answer(f"Ответ: {user.current_task['Answer']}")
+      
     elif message.text == "Посмотреть решение":
       print(f"LOG: in SUBTASK_HANDLER 'Посмотреть решение'; paths: {paths}")
+      
       if user.current_task['ExplanationPicture']:
-        user.answers.append(
-          f"Держи решение задачи №{paths[-1]}:"
-        )
-        await send_photo(app, user.current_task['ExplanationPicture'], message)
-        paths.pop()
-        update_state(message, app)
+        await send_photo(app, user.current_task['ExplanationPicture'], message, f"Держи решение задачи №{paths[-1]}:")
+      
       else:
-        user.answers.append(
-          f"К сожалению, решение задачи этой задачи временно отсутствует.\n"
-          f"Но ты можешь попробовать решить задачу самостоятельно, а затем посмотреть ответ или решение.\n"
-        )
-        update_state(message, app)
-      
-      await update_state(message, app)
-      
+        await message.answer(f"К сожалению, решение задачи этой задачи временно отсутствует.\nНо ты можешь попробовать решить задачу самостоятельно, а затем посмотреть ответ или решение.\n")
+        
     else:
       await back_handler(app)(message)
   return handler
@@ -238,20 +240,24 @@ def answer_check_handler(app):
   async def handler(message: Message):
     user = app.users.get_user(message.chat.id)
     current_level = get_by_path(app, user.paths)
+    
     print(f"LOG: in ANSWER_CHECK_HANDLER {message.text}; current: {current_level}")
     if message.text == user.current_task["Answer"]:
       user.answers.append(
         f"Поздравляю! Ты правильно решил задачу номер {user.paths[-2]}.\n"
         f"Если ты хочешь, можешь посмотреть решение задачи."
       )
+    
     else:
       user.answers.append(
         f"К сожалению, ты ошибся в решении задачи номер {user.paths[-2]}.\n"
         f"Попробуй ещё раз или посмотри решение задачи."
       )
+      
     user.paths.pop()
     print(f"LOG: in ANSWER_CHECK_HANDLER (end) {message.text}; path: {user.paths}")
     await update_state(message, app)
+    
   return handler
 #! [answer_check_handler]
 
@@ -270,17 +276,19 @@ async def update_state(message: Message, app) -> None:
   user = app.users.get_user(message.chat.id)
   current = get_by_path(app, user.paths)
   
-  print(f"LOG: in update_state {message.text}; current: {current}; paths: {user.paths}")
+  print(f"LOG: in update_state {message.text};\t\ncurrent: {current};\t\npaths: {user.paths}\t\nlatest: {user.paths[-1] if user.paths else ""}")
   
   #! showing buttons
   # TODO: refactor this piece of craph
-  if user.paths and user.paths[-1] == "Задачи":
-    # keyboard = create_task_keyboard()
-    keyboard = None
-  elif user.paths and isinstance(user.paths[-1], int):
+  if user.paths and (user.paths[-1] == "Задачи" or user.paths[-1] == "Решить задачу"):
+    keyboard = create_keyboard([], "Назад")
+  
+  elif user.paths and isinstance(user.paths[-1], int) and user.paths[-2] == "Задачи":
     keyboard = create_keyboard(["Решить задачу", "Посмотреть ответ", "Посмотреть решение"], "Назад")
+    
   elif user.paths and user.paths[-1] == "Константы и табличные значения":
     keyboard = create_keyboard([], "Назад")
+  
   else: 
     buttons_names = list(current.keys())
     if len(user.paths) == 0:
@@ -292,8 +300,7 @@ async def update_state(message: Message, app) -> None:
     await choose_command(app)(message)
     return
 
-  # print(f"LOG: in update_state before {user.answers}")
-  await message.answer(user.answers[-1], reply_markup=keyboard)
+  await message.answer(user.answers[-1], reply_markup=keyboard, parse_mode="HTML")
   #! showing buttons
 
 #! [update_state]

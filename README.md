@@ -1,112 +1,67 @@
-# Бот для интерактивного изучения физики
+# 🤖 Interactive Physics Learning Bot
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python)
 ![Framework](https://img.shields.io/badge/Framework-aiogram-blueviolet)
 ![Data Storage](https://img.shields.io/badge/Data-JSON-lightgrey)
 
-Бот разработан для того, чтобы сделать процесс изучения физики ещё более увлекательным.
+A Telegram bot designed to make studying physics more engaging and structured.
 
 ---
 
-## Возможности бота (Текущая реализация)
+## Features (Current Implementation)
 
-*   **Навигация по темам:** Пользователь может выбирать разделы и подразделы физики в соответствии со структурой, определенной в `themes.json`.
-*   **Доступ к теоретическим материалам:** Бот отправляет PDF-файлы с конспектами по выбранной теме.
-*   **Структура задач:** Для каждой темы предусмотрена возможность выбора "Задачи". Бот показывает количество задач, доступных в соответствующем `tasks.json` файле (реализация выдачи и проверки задач находится в разработке).
-*   **Доступ к константам:** Предоставляет файл с физическими константами и табличными значениями.
-*   **Удобная навигация:** Реализована кнопка "Назад" для возврата к предыдущему уровню меню.
+- **Topic navigation:** Users can explore physics sections and subsections based on the structure defined in `themes.json`.
+- **Access to theory:** The bot sends PDF notes compiled from LaTeX files for the selected topic.
+- **Problem sets:** Each topic provides access to related tasks. The bot shows the number of available problems from `tasks.json`. (Automatic task delivery and answer validation are in progress.)
+- **Reference materials:** The bot can send a file with physical constants and tabular data.
+- **User-friendly navigation:** Includes a "Back" button to easily return to the previous menu level.
 
 ---
 
-## Техническая реализация
+## Technical Overview
 
-### Используемые технологии
+### Technologies Used
 
-*   **Язык программирования:** Python 3.11+
-*   **Фреймворк:** aiogram (для интеграции с Telegram Bot API)
-*   **Хранение данных:** JSON-файлы (`themes.json`, `scripts.json`, `config.json`, `tasks.json`) для структурирования контента и конфигурации.
-*   **Теоретические материалы:** Хранятся в формате PDF (источники `.tex` файлы, которые компилируются отдельно).
+- **Language:** Python 3.11+
+- **Framework:** [aiogram](https://github.com/aiogram/aiogram) — asynchronous framework for Telegram bots
+- **Data storage:** JSON files (`themes.json`, `scripts.json`, `config.json`, `tasks.json`)
+- **Educational content:** PDF files compiled from `.tex` sources
 
-### Архитектура
+### Architecture Summary
 
-Проект построен на основе асинхронного фреймворка `aiogram` и использует следующую логику:
+- At startup, the bot reads configuration and content structure from JSON files.
+- A custom `state` module tracks each user's current path through the topic hierarchy and stores their answers.
+- Message handlers process `/start`, `/choose`, `/constants`, and interpret regular text as menu selections.
+- `get_by_path` enables dynamic access to the correct portion of `themes.json` based on user navigation.
+- `send_file` handles PDF delivery of theory and constants.
+- The `keyboards` module builds context-aware reply keyboards based on available options.
 
-1.  **Инициализация:** Бот читает конфигурацию и структуру тем из JSON-файлов при старте.
-2.  **Управление состоянием пользователя:** Модуль `state` отслеживает текущее положение пользователя в иерархии тем (`paths`) и историю ответов (`answers`).
-3.  **Обработка команд и сообщений:** Хендлеры в `bot/handlers.py` реагируют на команды (`/start`, `/choose`, `/constants`) и текстовые сообщения, которые интерпретируются как выбор пункта меню.
-4.  **Навигация по контенту:** Функция `get_by_path` позволяет получать доступ к соответствующим данным в `themes.json` на основе текущего пути пользователя.
-5.  **Отправка файлов:** Утилита `send_file` используется для отправки теоретических материалов (PDF) и файла констант.
-6.  **Генерация клавиатур:** Модуль `keyboards` создает динамические Reply-клавиатуры на основе доступных опций в текущем уровне навигации.
+---
 
-### Структура проекта
+## Project Structure
 
 ```bash
-├── .gitignore
-│
-├── README.md
-│
-├── venv-setup.sh          # Скрипт для настройки виртуального окружения
-│
-├── requirements.txt       # Список зависимостей Python
-│
-├── main.py                # Точка входа в приложение бота
-│
-├── bot/                   # Директория с кодом бота
-│   ├── __init__.py        # Инициализация пакета bot
-│   ├── bot.py             # Основной класс бота, инициализация aiogram и хранилища
-│   ├── handlers.py        # Обработчики команд и сообщений Telegram
-│   ├── keyboards.py       # Функции для создания клавиатур
-│   └── utils.py           # Вспомогательные функции (чтение JSON, отправка файлов и др.)
-├── data/                  # Директория с данными бота
-│   ├── config.json        # Конфигурационный файл (API ключ бота)
-│   ├── scripts.json       # Файл с текстовыми скриптами/фразами бота
-│   └── themes.json        # Структура тем и ссылки на файлы контента
-├── state/                 # Директория для управления состоянием пользователей
-│   ├── __init__.py        # Инициализация пакета state
-│   ├── storage.py         # Класс для хранения данных пользователей в оперативной памяти
-│   └── user_data.py       # Датакласс для хранения данных одного пользователя (путь, ответы)
-└── assets/                # Директория с контентом (теория в .tex и .pdf, задачи в .json)
-    ├── electrodynamics/
-    │   ├── electric-field/
-    │   │   ├── assets/    # Директория с картинками объяснений решений задач
-    │   │   ├── tasks.json # Файл с условиями задач и путями до кратких объяснений в виде .png
-    │   │   ├── electric-field.pdf  # Файл с теорией (сгенерирован из .tex)
-    │   │   └── electric-field.tex  # Исходник теории
-    │   ├── electromagnetic-induction/
-    │   │   ├── tasks/
-    │   │   ├── electromagnetic-induction.pdf
-    │   │   └── electromagnetic-induction.tex
-    │   ├── ... (другие подразделы электродинамики)
-    ├── mechanics/
-    │   ├── conversation-law-in-mechanics/
-    │   │   ├── tasks/
-    │   │   └── theory.pdf
-    │   │   └── conservation-law-in-mechanics.tex
-    │   ├── dynamics/
-    │   │   ├── tasks/
-    │   │   ├── theory.pdf
-    │   │   └── dynamics.tex
-    │   ├── kinematics/
-    │   │   ├── assets/
-    │   │   ├── tasks.json
-    │   │   ├── tasks/
-    │   │   ├── kinematics.pdf
-    │   │   └── kinematics.tex
-    │   └── ... (другие подразделы механики)
-    ├── quantum-physics/
-    │   ├── wave-particle-duality/
-    │   │   ├── assets/
-    │   │   ├── tasks.json
-    │   │   ├── tasks/
-    │   │   ├── wave-particle-duality.pdf
-    │   │   └── wave-particle-duality.tex
-    │   └── ... (другие подразделы квантовой физики)
-    ├── thermodynamics/
-    │   ├── molecular-physics-and-thermodynamics/
-    │   │   ├── tasks/
-    │   │   ├── molecular-physics-and-thermodynamics.pdf
-    │   │   └── molecular-physics-and-thermodynamics.tex
-    │   └── ... (другие подразделы термодинамики)
-    └── constants/
-        ├── contsants.pdf # Файл с константами (сгенерирован из .tex)
-        └── contsants.tex # Исходник констант
+main.py                # Entry point
+
+bot/                   # Core logic
+├── bot.py             # Bot initialization
+├── handlers.py        # Command/message handling
+├── keyboards.py       # Dynamic keyboard generation
+└── utils.py           # File sending, JSON loading, etc.
+
+data/                  # Static content structure and config
+├── config.json
+├── themes.json
+└── scripts.json
+
+state/                 # User session/state management
+├── storage.py
+└── user_data.py
+
+assets/                # Physics theory, tasks, and constants (PDF/TeX/JSON)
+```
+
+## Notes
+* All theory materials are stored as LaTeX source files and compiled into PDFs.
+* Tasks are organized per topic, with support for short image-based explanations.
+* The bot is designed to be easily extended with new topics and problem sets.

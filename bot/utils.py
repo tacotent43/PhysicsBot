@@ -49,7 +49,7 @@ async def send_file(app, filepath, message:Message) -> None:
 #! [send_file]
 
 #! [send_photo]
-async def send_photo(app, filepath, message:Message) -> None:
+async def send_photo(app, filepath, message: Message, text="") -> None:
   try:
     with open(filepath, 'rb') as file:
       await app.bot.send_photo(
@@ -57,14 +57,21 @@ async def send_photo(app, filepath, message:Message) -> None:
         photo=types.BufferedInputFile(
           file.read(),
           filename=filepath.split('/')[-1]
-        )
+        ),
+        caption=text,
+        has_spoiler=True
       )
       
   except FileNotFoundError:
     await message.answer("Фотография не найдена. Пожалуйста, сообщите администратору.")
     print(f"WARNING: {message.chat.id} ({message.from_user.username}) requested photo, but it was not found in {filepath}")
-    
+
   except Exception as err:
     await message.answer("Произошла ошибка при отправке файла.")
     print(f"ERROR: {message.chat.id} ({message.from_user.username}) caught error while receiving photo: {err}")
 #! [send_photo]
+
+#! [check_task]
+def check_task(user_answer, right_answer):
+  return user_answer == right_answer
+#! [check_task]
